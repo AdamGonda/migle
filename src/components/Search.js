@@ -1,6 +1,6 @@
 import React from 'react';
 import Style from 'styled-components';
-import magnifying from './assets/magnifying.svg'
+import magnifying from './assets/magnifying glass icon.svg'
 
 export default () => {
   return (

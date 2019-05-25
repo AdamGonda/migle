@@ -1,6 +1,6 @@
 import React from 'react';
 import Style from 'styled-components';
-import mainBtn from './assets/main button.svg';
+import mainBtn from './assets/main button icon.svg';
 import Search from './Search';
 
 export default () => {
