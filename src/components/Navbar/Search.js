@@ -16,7 +16,7 @@ const strechTransition = 0.2
 const Wrapper = Style.div`
   position: relative;
   padding: 0;
-  margin: 25px;
+  margin-left: 15px;
   display: flex;
   align-items: center;
 
@@ -26,21 +26,22 @@ const Wrapper = Style.div`
   }
 
   img {
-      position:absolute;
-      height: 11px;
-      width: 0px;
-      left: 1px;
-      margin-left: -7px;
+    position:absolute;
+    height: 12px;
+    left: 1px;
+    margin-left: 9px;
       
   }
 
   input {
     text-align: center;
     font-size: 16px;
-    padding-left: 26px;
-    padding-right: 6px;
-    font-weight: 300;
     padding-bottom: 3px;
+    padding-left: 26px;
+    padding-top: 2px;
+    padding-right: 7px;
+    font-weight: 300;
+    position: absolute;
     width: 150px !important;
     caret-color: white;
     color: white;
