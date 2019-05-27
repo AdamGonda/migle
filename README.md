@@ -16,4 +16,7 @@ Stuff like that, so I thought it is fairly well defined so I can make an app tha
 - Ease of use.
 - Nice UX/UI.
 
-So it is a longer project and I just started so I am doing the front-end first and I made a few UI concepts: 
+### Here is a UI concept to get an idea how I imagine the stuff so far:
+![](https://github.com/AdamGonda/migle-front/blob/master/sprint%20view%20concept.png)
+
+
