@@ -15,6 +15,5 @@ Stuff like that, so I thought it is fairly well defined so I can make an app tha
 - Real-time messaging.
 - Ease of use.
 - Nice UX/UI.
-- Specialized purpose.
 
 So it is a longer project and I just started so I am doing the front-end first and I made a few UI concepts: 
