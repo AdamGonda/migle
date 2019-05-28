@@ -59,10 +59,10 @@ export default ({ideal, remaining}) => {
                 }
             }],
             yAxes: [{
-            gridLines: {
-                color: "black",
-            }
-            }]
+                    gridLines: {
+                        color: "black",
+                    }
+                }]
         }
         }
 
