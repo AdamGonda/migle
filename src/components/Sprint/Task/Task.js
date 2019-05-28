@@ -60,7 +60,6 @@ const Wrapper = Style.div`
     display: flex;
     align-items: center;
     justify-content:space-between; 
-    border: 1px solid white;
     background-color: #DFE1E6;
     height: 76px;
     border-radius: 25px;
