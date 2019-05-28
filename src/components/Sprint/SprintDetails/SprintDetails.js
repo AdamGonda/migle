@@ -1,12 +1,12 @@
 import React from 'react';
 import Style from 'styled-components';
-import Bubble from '../../Bubble/Bubble';
+import Bubble from './Bubble';
 import CompletedIcon from './assets/completed icon.svg'
 import Week from './Week';
 import Chart from './Chart';
 
 export default () => {
-    const days = [
+    const dummyDays = [
         {name: 'Monday', ideal: 50.8, remaining: 60.8},
         {name: 'Tuesday', ideal: 40, remaining: 45}, 
         {name: 'Wednesday', ideal: 30.1, remaining: 30}, 
@@ -17,11 +17,11 @@ export default () => {
         <Wrapper>
             <Header>
                 <Bubble title={<img src={CompletedIcon} style={{width:'23px', margin: '0px 3.5px -1px -6px'}}/>} number={'9/12'}/>
-                <Bubble title={'Estimation'} number={'60.8'}/>
                 <Bubble title={'Ideal'} number={'58'}/>
+                <Bubble title={'Estimation'} number={'60.8'}/>
             </Header>
             <Body>
-                <Week days={days}/>
+                <Week days={dummyDays}/>
                 <Chart ideal={[60,50,40, 0]} remaining={[55, 45, 35, 0]}/>
             </Body>
         </Wrapper>
