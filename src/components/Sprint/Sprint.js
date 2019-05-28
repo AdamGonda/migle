@@ -2,7 +2,6 @@ import React from 'react'
 import Style from 'styled-components'
 import Task from './Task/Task'
 import SprintDetails from './SprintDetails/SprintDetails'
-import DummyTasks from '../../dummy data/tasks'
 import tasks from '../../dummy data/tasks'
 
 export default () => {
