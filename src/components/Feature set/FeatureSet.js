@@ -1,9 +1,5 @@
 import React from 'react'
 
 export default () => {
-    return (
-        <div>
-            Feature set
-        </div>
-    )
+  return <div>Feature set</div>
 }

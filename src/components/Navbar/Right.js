@@ -1,8 +1,8 @@
 import React from 'react'
 import Style from 'styled-components'
-import mainBtn from './assets/main button icon.svg';
-import teamBtn from './assets/team icon.svg';
-import messageBtn from './assets/messages icon.svg';
+import mainBtn from './assets/main button icon.svg'
+import teamBtn from './assets/team icon.svg'
+import messageBtn from './assets/messages icon.svg'
 
 export default () => {
   return (
@@ -36,4 +36,3 @@ const MainBtn = Style.img`
   width: 44px;
   margin-left: ${spaceBetween}px;
 `
-

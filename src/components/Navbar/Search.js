@@ -1,12 +1,12 @@
-import React from 'react';
-import Style from 'styled-components';
+import React from 'react'
+import Style from 'styled-components'
 import magnifying from './assets/magnifying glass icon.svg'
 
 export default () => {
   return (
     <Wrapper>
-        <input type="search"  placeholder='Search' size="5"/>
-        <img alt="magnifying glass" src={magnifying} ></img>
+      <input type="search" placeholder="Search" size="5" />
+      <img alt="magnifying glass" src={magnifying} />
     </Wrapper>
   )
 }

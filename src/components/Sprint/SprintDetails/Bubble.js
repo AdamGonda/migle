@@ -1,17 +1,13 @@
 import React from 'react'
-import Style from 'styled-components';
+import Style from 'styled-components'
 
-export default ({title, number}) => {
-    return (
-        <Wrapper>
-            <Title>
-                {title}
-            </Title>
-            <Number>
-                {number}
-            </Number>
-        </Wrapper>
-    )
+export default ({ title, number }) => {
+	return (
+		<Wrapper>
+			<Title>{title}</Title>
+			<Number>{number}</Number>
+		</Wrapper>
+	)
 }
 
 const Wrapper = Style.div`

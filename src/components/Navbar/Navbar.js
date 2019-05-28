@@ -1,8 +1,8 @@
-import React from 'react';
-import Style from 'styled-components';
+import React from 'react'
+import Style from 'styled-components'
 import Left from './Left'
-import Middle from './Middle';
-import Right from './Right';
+import Middle from './Middle'
+import Right from './Right'
 
 export default () => {
   return (
@@ -11,8 +11,8 @@ export default () => {
       <Middle />
       <Right />
     </Wrapper>
-  );
-};
+  )
+}
 
 const Wrapper = Style.div`
   padding: 0px 0px 0px 0px;
@@ -26,4 +26,4 @@ const Wrapper = Style.div`
   justify-content: space-between;
   padding-left: 52px;
   padding-right: 52px;
-`;
+`

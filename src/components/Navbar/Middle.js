@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 import { NavLink } from 'react-router-dom'
-import Style from 'styled-components';
+import Style from 'styled-components'
 import profilePicture from '../../dummy data/profile pictures/bob.png'
 
 export default () => {
@@ -9,12 +9,18 @@ export default () => {
   const sprint = `Sprints`
   return (
     <Wrapper>
-      <img src={profilePicture} /> 
-      <NavLink exact to='/project' >{project}</NavLink>
+      <img src={profilePicture} />
+      <NavLink exact to="/project">
+        {project}
+      </NavLink>
       <span>|</span>
-      <NavLink exact to='/feature-set' >{featureSet}</NavLink>
+      <NavLink exact to="/feature-set">
+        {featureSet}
+      </NavLink>
       <span>|</span>
-      <NavLink exact to='/sprint' >{sprint}</NavLink>
+      <NavLink exact to="/sprint">
+        {sprint}
+      </NavLink>
     </Wrapper>
   )
 }

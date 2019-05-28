@@ -1,40 +1,33 @@
-import React from 'react';
-import Style from 'styled-components';
+import React from 'react'
+import Style from 'styled-components'
 
-export default ({days}) => {
-    return (
-        <Wrpper>
-            <Header>
-                <span style={{marginRight: '60px'}}>Ideal</span>
-                <span>Remaining</span>
-            </Header>
-            <Body>
-                <Days>
-                    {days.map(day => 
-                        <p>
-                            {day.name}
-                        </p>
-                    )}
-                </Days>
-                
-                <Data>
-                    {days.map(day => 
-                            <p>
-                                {day.remaining}
-                            </p>
-                        )}
-                </Data>
-                <Data >
-                    {days.map(day => 
-                            <p>
-                                {day.ideal}
-                            </p>
-                        )}
-                </Data>
-                
-            </Body>
-        </Wrpper>
-    )
+export default ({ days }) => {
+  return (
+    <Wrpper>
+      <Header>
+        <span style={{ marginRight: '60px' }}>Ideal</span>
+        <span>Remaining</span>
+      </Header>
+      <Body>
+        <Days>
+          {days.map(day => (
+            <p>{day.name}</p>
+          ))}
+        </Days>
+
+        <Data>
+          {days.map(day => (
+            <p>{day.remaining}</p>
+          ))}
+        </Data>
+        <Data>
+          {days.map(day => (
+            <p>{day.ideal}</p>
+          ))}
+        </Data>
+      </Body>
+    </Wrpper>
+  )
 }
 
 const Wrpper = Style.div`
