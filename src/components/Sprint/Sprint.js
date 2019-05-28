@@ -2,43 +2,22 @@ import React from 'react';
 import Style from 'styled-components';
 import Task from './Task/Task';
 import SprintDetails from './SprintDetails/SprintDetails';
+import DummyTasks from '../../dummy data/tasks'
+import tasks from '../../dummy data/tasks';
 
 export default () => {
   return (
     <Wrapper>
       <Left>
-        <Task
-          id={4}
-          story={`Display statement balance upon 
-                authentication. Say for example $1560`}
-          estimation={120}
-          responsible={'bobert'}
-          status={'New'}
-        />
-        <Task
-          id={2}
-          story={`I have to write something here
-                    becouse of the sun`}
-          estimation={1000}
-          responsible={'Maria'}
-          status={'In progress'}
-        />
-        <Task
-          id={10}
-          story={`Kamaro halabala mon ik lkad
-                    hello bello mello`}
-          estimation={500}
-          responsible={'Kitty'}
-          status={'Review'}
-        />
-        <Task
-          id={11}
-          story={`Display statement balance upon 
-                authentication. Say for example $1560`}
-          estimation={120}
-          responsible={'bobert'}
-          status={'Done'}
-        />
+        {tasks.map(task => {
+          return <Task
+            id={task.id}
+            story={task.story}
+            estimation={task.estimation}
+            responsible={task.responsible}
+            status={task.status}
+          />
+        })}
       </Left>
       <Right>
           <SprintDetails />
