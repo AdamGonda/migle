@@ -1,6 +1,6 @@
 import React from 'react';
 import Style from 'styled-components';
-import Bubble from '../Bubble/Bubble';
+import Bubble from '../../Bubble/Bubble';
 import CompletedIcon from './assets/completed icon.svg'
 import Week from './Week';
 import Chart from './Chart';

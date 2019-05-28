@@ -1,7 +1,7 @@
 import React from 'react';
 import Style from 'styled-components';
-import Task from '../Task/Task';
-import SprintDetails from '../SprintDetails/SprintDetails';
+import Task from './Task/Task';
+import SprintDetails from './SprintDetails/SprintDetails';
 
 export default () => {
   return (

@@ -1,11 +1,11 @@
 import React from 'react'
 import Style from 'styled-components';
-import ProfilePicture from '../../dummy data/profile pictures/Olivia.png'
-import StatusIndicator1 from './status indicator 1.svg'
-import StatusIndicator2 from './status indicator 2.svg'
-import StatusIndicator3 from './status indicator 3.svg'
-import StatusIndicator4 from './status indicator 4.svg'
-import Separator from './separator.svg'
+import ProfilePicture from '../../../dummy data/profile pictures/Olivia.png'
+import StatusIndicator1 from './assets/status indicator 1.svg'
+import StatusIndicator2 from './assets/status indicator 2.svg'
+import StatusIndicator3 from './assets/status indicator 3.svg'
+import StatusIndicator4 from './assets/status indicator 4.svg'
+import Separator from './assets/separator.svg'
 
 export default ({id, story, estimation, responsible, status}) => {
 
