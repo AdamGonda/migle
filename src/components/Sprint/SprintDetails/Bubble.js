@@ -18,7 +18,7 @@ const Wrapper = Style.div`
     background-color: #DFE1E6;
     border-radius: 30px;
     font-size: 20px;
-    padding: 10px 20px;
+    padding: 10px 25px;
     display: inline-block;
 `
 
