@@ -1,6 +1,7 @@
 import React from 'react';
 import Style from 'styled-components';
 import Task from '../Task/Task';
+import SprintDetails from '../SprintDetails/SprintDetails';
 
 export default () => {
   return (
@@ -39,25 +40,27 @@ export default () => {
           status={'Done'}
         />
       </Left>
-      <Right>data about items</Right>
+      <Right>
+          <SprintDetails />
+      </Right>
     </Wrapper>
   );
 };
 
 const Wrapper = Style.div`
-    display: flex;
-    padding: 30px 10px;
-    color: #2D4D60;
+  display: flex;
+  padding: 30px 10px;
+  color: #2D4D60;
 `;
 
 const Left = Style.div`
-    display: flex;
-    flex-direction: column;
-    width: 55%;
-    padding: 0px 15px;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding: 0px 15px;
 `;
 
 const Right = Style.div`
-    width: 45%;
-    padding: 0px 15px;
+  width: 40%;
+  padding: 10px 15px;
 `;
