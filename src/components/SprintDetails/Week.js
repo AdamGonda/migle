@@ -11,13 +11,27 @@ export default ({days}) => {
             <Body>
                 <Days>
                     {days.map(day => 
-                        <div>
-                            <span>{day.name}</span>
-                            <span>{day.ideal}</span>
-                            <span>{day.remaining}</span>
-                        </div>
+                        <p>
+                            {day.name}
+                        </p>
                     )}
                 </Days>
+                
+                <Data>
+                    {days.map(day => 
+                            <p>
+                                {day.remaining}
+                            </p>
+                        )}
+                </Data>
+                <Data >
+                    {days.map(day => 
+                            <p>
+                                {day.ideal}
+                            </p>
+                        )}
+                </Data>
+                
             </Body>
         </Wrpper>
     )
@@ -27,7 +41,7 @@ const Wrpper = Style.div`
     background-color: #DFE1E6;
     border-radius: 25px;
     border-radius: 25px 25px 0px 0px;
-    padding: 18px 35px;
+    padding: 25px 35px;
 `
 
 const Header = Style.div`
@@ -36,15 +50,24 @@ const Header = Style.div`
 `
 
 const Body = Style.div`
-    
+    font-size: 30.5px;
 `
 
 const Days = Style.div`
-    font-size: 30.5px;
+    
+    display: inline-block;
 
-    div {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px; 
+    p {
+        margin: 10px 0px; 
+    }
+`
+
+const Data = Style.div`
+    display: inline-block;
+    float:right;
+    margin: 0px 20px;
+
+    p {
+        margin: 10px 0px; 
     }
 `

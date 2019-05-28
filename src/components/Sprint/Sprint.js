@@ -49,7 +49,7 @@ export default () => {
 
 const Wrapper = Style.div`
   display: flex;
-  padding: 30px 10px;
+  padding: 15px 10px;
   color: #2D4D60;
 `;
 

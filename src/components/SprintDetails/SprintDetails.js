@@ -36,5 +36,5 @@ const Header = Style.div`
 `
 
 const Body = Style.div`
-    margin-top: 15px;
+    margin-top: 20px;
 `
