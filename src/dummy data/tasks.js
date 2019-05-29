@@ -2,14 +2,14 @@ export default [
     {
         id: 2,
         dependencies: [1,2],
-        story: 'Lorem Ipsum is simply dummy text of the printing and typesetting industryy.',
+        story: 'Lorem Ipsum is simply dummy text of the printing and typesetting industryy. Lorem Ipsum is simply dummy text of the printing and typesetting industryy. Lorem Ipsum is simply dummy text of the printing and typesetting industryy.',
         estimation: 5,
         responsible: 'Bob',
         status: 'New'
     },
     {
         id: 4,
-        story: 'Lorem Ipsum is simply dummy text of the printing and typesetting industryy.',
+        story: 'Lorem Ipsum is simply dummy text of the printing and typesetting industryy. Lorem Ipsum is simply dummy text of the printing and typesetting industryy.',
         estimation: 3,
         responsible: 'Bob',
         status: 'In progress'

@@ -7,6 +7,7 @@ import StatusIndicator3 from './assets/status indicator 3.svg'
 import StatusIndicator4 from './assets/status indicator 4.svg'
 import Separator from './assets/separator.svg'
 import IdAndDependencies from './IdAndDependencies'
+import Story from './Story';
 
 export default ({
   id,
@@ -33,10 +34,7 @@ export default ({
   return (
     <Wrapper>
       <IdAndDependencies id={id} dependencies={dependencies} />
-      <Story>
-        <p>{story}</p>
-      </Story>
-
+      <Story story={story}/>
       <img src={Separator} style={SeparatorStyle} />
 
       <Estimation>{estimation}</Estimation>
@@ -70,11 +68,6 @@ const Wrapper = Style.div`
     border-radius: 25px;
     margin: 9.7px 0px;
     padding: 0px 22px 0px 20px;
-`
-
-const Story = Style.div`
-    width: 242px;
-    font-size: 12px;
 `
 
 const Estimation = Style.div`
