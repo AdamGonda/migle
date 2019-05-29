@@ -68,7 +68,7 @@ const Wrapper = Style.div`
     background-color: #DFE1E6;
     height: 76px;
     border-radius: 25px;
-    margin: 10px 0px;
+    margin: 9.7px 0px;
     padding: 0px 22px 0px 20px;
 `
 
