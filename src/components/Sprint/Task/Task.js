@@ -6,9 +6,18 @@ import StatusIndicator2 from './assets/status indicator 2.svg'
 import StatusIndicator3 from './assets/status indicator 3.svg'
 import StatusIndicator4 from './assets/status indicator 4.svg'
 import Separator from './assets/separator.svg'
+import IdAndDependencies from './IdAndDependencies'
 
-export default ({ id, story, estimation, responsible, status }) => {
-  const calculateStatusBarImage = status => {
+export default ({
+  id,
+  dependencies,
+  story,
+  estimation,
+  responsible,
+  status
+}) => {
+  
+  const calculateStatusBarImage = () => {
     switch (status) {
       case 'New':
         return StatusIndicator1
@@ -21,13 +30,9 @@ export default ({ id, story, estimation, responsible, status }) => {
     }
   }
 
-  let CurrentStatusIndicator = calculateStatusBarImage(status)
-
   return (
     <Wrapper>
-      <IdAndDep>
-        <p>{id}</p>
-      </IdAndDep>
+      <IdAndDependencies id={id} dependencies={dependencies} />
       <Story>
         <p>{story}</p>
       </Story>
@@ -46,7 +51,7 @@ export default ({ id, story, estimation, responsible, status }) => {
 
       <Status>
         <p>{status}</p>
-        <img src={CurrentStatusIndicator} />
+        <img src={calculateStatusBarImage()} />
       </Status>
     </Wrapper>
   )
@@ -65,22 +70,6 @@ const Wrapper = Style.div`
     border-radius: 25px;
     margin: 10px 0px;
     padding: 0px 22px 0px 20px;
-`
-
-const IdAndDep = Style.div`
-    bacground-color: rgba(0,0,0,0);
-    border: 1.5px solid #2D4D60;
-    border-radius: 30px;
-    width: 49px;
-    height: 49px;
-    display: flex;
-    align-items: center;
-
-    p {
-        font-weight: 600;
-        font-size: 24px;
-        margin: 0px auto;
-    }
 `
 
 const Story = Style.div`
