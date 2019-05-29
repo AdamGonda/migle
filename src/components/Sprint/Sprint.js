@@ -12,6 +12,7 @@ export default () => {
           return (
             <Task
               id={task.id}
+              dependencies={task.dependencies}
               story={task.story}
               estimation={task.estimation}
               responsible={task.responsible}
