@@ -1,22 +1,23 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import Style from 'styled-components'
-import Task from './Task/Task'
+import Task from './Story/Story'
 import SprintDetails from './SprintDetails/SprintDetails'
-import tasks from '../../dummy data/tasks'
+import { getIdFromEndOfPath, findProperty } from '../../util'
 
-export default () => {
+const Sprint = ({ stories }) => {
   return (
     <Wrapper>
       <Left>
-        {tasks.map(task => {
+        {stories.map(story => {
           return (
             <Task
-              id={task.id}
-              dependencies={task.dependencies}
-              story={task.story}
-              estimation={task.estimation}
-              responsible={task.responsible}
-              status={task.status}
+              id={story.id}
+              dependencies={story.dependencies}
+              story={story.story}
+              estimation={story.estimation}
+              responsible={story.responsible}
+              status={story.status}
             />
           )
         })}
@@ -27,6 +28,25 @@ export default () => {
     </Wrapper>
   )
 }
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    stories: findProperty(
+      'sprints',
+      state,
+      getIdFromEndOfPath(ownProps)
+    ).storyIds.map(storyId => state.stories.find(story => storyId == story.id))
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {}
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Sprint)
 
 const Wrapper = Style.div`
   display: flex;
