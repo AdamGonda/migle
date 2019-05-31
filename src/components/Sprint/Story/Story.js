@@ -1,13 +1,12 @@
 import React from 'react'
 import Style from 'styled-components'
-import ProfilePicture from '../../../dummy data/profile pictures/Olivia.png'
 import StatusIndicator1 from './assets/status indicator 1.svg'
 import StatusIndicator2 from './assets/status indicator 2.svg'
 import StatusIndicator3 from './assets/status indicator 3.svg'
 import StatusIndicator4 from './assets/status indicator 4.svg'
 import Separator from './assets/separator.svg'
 import IdAndDependencies from './IdAndDependencies'
-import Story from './Story';
+import Story from './Story description'
 
 export default ({
   id,
@@ -17,7 +16,6 @@ export default ({
   responsible,
   status
 }) => {
-  
   const calculateStatusBarImage = () => {
     switch (status) {
       case 'New':
@@ -28,28 +26,36 @@ export default ({
         return StatusIndicator3
       case 'Done':
         return StatusIndicator4
+      default:
+        return StatusIndicator1
     }
   }
+
+  const separator = () => (
+    <img alt="separator" src={Separator} style={SeparatorStyle} />
+  )
 
   return (
     <Wrapper>
       <IdAndDependencies id={id} dependencies={dependencies} />
-      <Story story={story}/>
-      <img src={Separator} style={SeparatorStyle} />
+      <Story story={story} />
+
+      {separator()}
 
       <Estimation>{estimation}</Estimation>
 
-      <img src={Separator} style={SeparatorStyle} />
+      {separator()}
+
       <Responsible>
-        <img src={ProfilePicture} />
-        <p>{responsible}</p>
+        <img alt="responsible" src={responsible.img} />
+        <p>{responsible.name}</p>
       </Responsible>
 
-      <img src={Separator} style={SeparatorStyle} />
+      {separator()}
 
       <Status>
         <p>{status}</p>
-        <img src={calculateStatusBarImage()} />
+        <img alt="status indicator" src={calculateStatusBarImage()} />
       </Status>
     </Wrapper>
   )

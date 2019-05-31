@@ -1,20 +1,20 @@
 import React from 'react'
 import Style from 'styled-components'
 import Left from './Left'
-import Middle from './Middle'
+import PathNavigator from './PathNavigator'
 import Right from './Right'
 
 export default () => {
   return (
     <Wrapper>
       <Left />
-      <Middle />
+      <PathNavigator />
       <Right />
     </Wrapper>
   )
 }
 
-const Wrapper = Style.nav`
+const Wrapper = Style.div`
   padding: 0px 0px 0px 0px;
   background-color: #0094FF;
   height: 90px;

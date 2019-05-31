@@ -2,10 +2,6 @@ import React from 'react'
 import Style from 'styled-components'
 
 export default ({ story }) => {
-  const showNCharacters = n => {
-    return `${story.substring(0, n)}`
-  }
-
   const charLimit = 75
   const btnText = 'more'
 
@@ -13,7 +9,10 @@ export default ({ story }) => {
     <Wrapper>
       {story.length > charLimit ? (
         <>
-          <p>{story.substring(0, charLimit)}<span>...</span></p>
+          <p>
+            {story.substring(0, charLimit)}
+            <span>...</span>
+          </p>
           <button>{btnText}</button>
         </>
       ) : (
