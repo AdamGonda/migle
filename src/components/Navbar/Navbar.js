@@ -14,7 +14,7 @@ export default () => {
   )
 }
 
-const Wrapper = Style.nav`
+const Wrapper = Style.div`
   padding: 0px 0px 0px 0px;
   background-color: #0094FF;
   height: 90px;
