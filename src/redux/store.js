@@ -5,7 +5,7 @@ const initialState = sampleData
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'clickOnNavLink':
+    case 'navigate with bar':
       return {
         ...state,
         locations: [
@@ -13,7 +13,7 @@ const rootReducer = (state = initialState, action) => {
         ]
       }
 
-    case 'goToProject' || 'goToFeatureSet' || 'goToSprint':
+    case 'navigate with link':
       return {
         ...state,
         locations: [...state.locations, action.payload]

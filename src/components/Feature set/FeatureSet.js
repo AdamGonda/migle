@@ -38,7 +38,7 @@ const mapDispatchToProps = dispatch => {
   return {
     goToSprint: (id, name, path) =>
       dispatch({
-        type: 'goToSprint',
+        type: 'navigate with link',
         payload: {
           id,
           name,

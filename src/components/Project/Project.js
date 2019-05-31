@@ -36,7 +36,7 @@ const mapDispatchToProps = dispatch => {
   return {
     goToFeatureSet: (id, name, path) =>
       dispatch({
-        type: 'goToFeatureSet',
+        type: 'navigate with link',
         payload: {
           id,
           name,

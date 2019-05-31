@@ -47,7 +47,7 @@ const mapDispatchToProps = dispatch => {
   return {
     clickOnNavLink: idx =>
       dispatch({
-        type: 'clickOnNavLink',
+        type: 'navigate with bar',
         payload: { idx }
       })
   }
