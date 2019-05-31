@@ -19,6 +19,7 @@ export default () => {
         <Bubble
           title={
             <img
+              alt='completed'
               src={CompletedIcon}
               style={{ width: '23px', margin: '0px 3.5px -1px -6px' }}
             />
