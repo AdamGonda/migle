@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import Style from 'styled-components'
 import HomeIcon from './assets/home icon.svg'
 
-const Middle = ({ history, locations, clickOnNavLink }) => {
+const PathNavigator = ({ history, locations, clickOnNavLink }) => {
   const goTo = (location, idx) => {
     let goToPath = ''
     if (location.path === 'project') {
@@ -57,7 +57,7 @@ export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(Middle)
+  )(PathNavigator)
 )
 
 const Wrapper = Style.div`

@@ -1,14 +1,14 @@
 import React from 'react'
 import Style from 'styled-components'
 import Left from './Left'
-import Middle from './Middle'
+import PathNavigator from './PathNavigator'
 import Right from './Right'
 
 export default () => {
   return (
     <Wrapper>
       <Left />
-      <Middle />
+      <PathNavigator />
       <Right />
     </Wrapper>
   )
