@@ -23,12 +23,28 @@ const PathNavigator = ({ history, locations, navigateToLocation }) => {
 
   return (
     <Wrapper>
-      <img alt='home' src={HomeIcon} onClick={() => navigateToLocation(0, {name: 'Home', path: '/'}, NAVBAR)} />
+      <img
+        alt="home"
+        src={HomeIcon}
+        onClick={() =>
+          navigateToLocation(0, { name: 'Home', path: '/' }, NAVBAR)
+        }
+      />
 
       {locations.map((location, idx) => {
         return (
           <>
-            <div onClick={() => navigateToLocation(idx + 1, {name: location.name, path: location.path}, NAVBAR)}>{location.name}</div>
+            <div
+              onClick={() =>
+                navigateToLocation(
+                  idx + 1,
+                  { name: location.name, path: location.path },
+                  NAVBAR
+                )
+              }
+            >
+              {location.name}
+            </div>
             {idx < locations.length - 1 ? <span>|</span> : null}
           </>
         )
@@ -46,7 +62,7 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    {navigateToLocation}
+    { navigateToLocation }
   )(PathNavigator)
 )
 
