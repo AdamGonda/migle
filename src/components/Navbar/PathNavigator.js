@@ -3,47 +3,27 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Style from 'styled-components'
 import HomeIcon from './assets/home icon.svg'
-import { navigateToLocation, NAVBAR } from '../../redux/actions/locations'
+import { navigateTo, NAVBAR } from '../../redux/actions/locations'
 
-const PathNavigator = ({ history, locations, navigateToLocation }) => {
-  const goTo = (location, idx) => {
-    let goToPath = ''
-    if (location.path === 'project') {
-      goToPath = `/${location.path}/${location.id}`
-    } else if (location.path === 'feature-set') {
-      goToPath = `/project/${location.path}/${location.id}`
-    } else if (location.path === 'sprint') {
-      goToPath = `/project/feature-set/${location.path}/${location.id}`
-    } else if (location.path === 'story') {
-      goToPath = `/project/feature-set/sprint/${location.id}`
-    }
-
-    history.push(goToPath)
-  }
-
+const PathNavigator = ({ history, locations, navigateTo }) => {
   const displayLinks = (location, idx) => {
-    if(idx == 0){
+    if (idx == 0) {
       return (
         <img
-        alt='Home'
-        src={HomeIcon}
-        onClick={() =>
-          navigateToLocation(idx, { name: location.name, path: location.path }, NAVBAR)
-        }
-      />
+          alt="Home"
+          src={HomeIcon}
+          onClick={() => {
+            navigateTo(location, NAVBAR, { idx, history })
+          }}
+        />
       )
-    }
-    else {
+    } else {
       return (
         <>
           <div
-            onClick={() =>
-              navigateToLocation(
-                idx + 1,
-                { name: location.name, path: location.path },
-                NAVBAR
-              )
-            }
+            onClick={() => {
+              navigateTo(location, NAVBAR, { idx: idx + 1, history })
+            }}
           >
             {location.name}
           </div>
@@ -53,11 +33,7 @@ const PathNavigator = ({ history, locations, navigateToLocation }) => {
     }
   }
 
-  return (
-    <Wrapper>
-      {locations.map(displayLinks)}
-    </Wrapper>
-  )
+  return <Wrapper>{locations.map(displayLinks)}</Wrapper>
 }
 
 const mapStateToProps = state => {
@@ -69,7 +45,7 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { navigateToLocation }
+    { navigateTo }
   )(PathNavigator)
 )
 

@@ -2,24 +2,25 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getIdFromEndOfPath, findProperty } from '../../util'
+import { navigateTo, LINK } from '../../redux/actions/locations'
 
-const Project = ({ featureSets, goToFeatureSet }) => {
+const Project = ({ featureSets, navigateTo }) => {
   return (
-    <ul>
-      {/* {featureSets.map(set => {
+    <>
+      <h1 style={{ color: 'white' }}>Project</h1>
+      {featureSets.map(set => {
         return (
           <p>
             <NavLink
               to={`${set.path}/${set.id}`}
-              onClick={() => goToFeatureSet(set.id, set.name, set.path)}
+              onClick={() => navigateTo(set, LINK, {})}
             >
               {set.name}
             </NavLink>
           </p>
         )
-      })} */}
-      Project
-    </ul>
+      })}
+    </>
   )
 }
 
@@ -33,21 +34,7 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    goToFeatureSet: (id, name, path) =>
-      dispatch({
-        type: 'navigate with link',
-        payload: {
-          id,
-          name,
-          path
-        }
-      })
-  }
-}
-export default Project
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(Project)
+export default connect(
+  mapStateToProps,
+  { navigateTo }
+)(Project)

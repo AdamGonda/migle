@@ -1,25 +1,30 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { navigateTo, LINK } from '../../redux/actions/locations'
 
-const Home = ({ projects, goToProject }) => {
+const Home = ({ projects, navigateTo }) => {
   return (
     <>
-      {/* {projects.map((project, idx) => {
+      <h1 style={{ color: 'white' }}>Home</h1>
+      {projects.map((project, idx) => {
         return (
           <p key={idx}>
             <NavLink
               to={`${project.path}/${project.id}`}
               onClick={() =>
-                goToProject(project.id, project.name, project.path)
+                navigateTo(
+                  project,
+                  LINK,
+                  {}
+                )
               }
             >
               {project.name}
             </NavLink>
           </p>
         )
-      })} */}
-      Home
+      })}
     </>
   )
 }
@@ -30,21 +35,7 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    goToProject: (id, name, path) =>
-      dispatch({
-        type: 'navigate with link',
-        payload: {
-          id,
-          name,
-          path
-        }
-      })
-  }
-}
-export default Home
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(Home)
+export default connect(
+  mapStateToProps,
+  { navigateTo }
+)(Home)

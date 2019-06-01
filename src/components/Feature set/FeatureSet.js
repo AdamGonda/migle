@@ -2,24 +2,25 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getIdFromEndOfPath, findProperty } from '../../util'
+import { navigateTo, LINK } from '../../redux/actions/locations'
 
-const FeatureSet = ({ sprints, goToSprint }) => {
+const FeatureSet = ({ sprints, navigateTo }) => {
   return (
-    <ul>
-      {/* {sprints.map(sprint => {
+    <>
+    <h1 style={{color:'white'}}>Feature set</h1>
+      {sprints.map(sprint => {
         return (
           <p>
             <NavLink
               to={`${sprint.path}/${sprint.id}`}
-              onClick={() => goToSprint(sprint.id, sprint.name, sprint.path)}
+              onClick={() => navigateTo(sprint, LINK, {})}
             >
               {sprint.name}
             </NavLink>
           </p>
         )
-      })} */}
-      Feature set
-    </ul>
+      })}
+    </>
   )
 }
 
@@ -35,22 +36,7 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    goToSprint: (id, name, path) =>
-      dispatch({
-        type: 'navigate with link',
-        payload: {
-          id,
-          name,
-          path
-        }
-      })
-  }
-}
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(FeatureSet)
-export default FeatureSet
+export default connect(
+  mapStateToProps,
+  { navigateTo }
+)(FeatureSet)

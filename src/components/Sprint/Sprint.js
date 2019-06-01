@@ -9,7 +9,7 @@ const Sprint = ({ stories }) => {
   return (
     <Wrapper>
       <Left>
-        {/* {stories.map(story => {
+        {stories.map(story => {
           return (
             <Task
               id={story.id}
@@ -20,12 +20,11 @@ const Sprint = ({ stories }) => {
               status={story.status}
             />
           )
-        })} */}
-        Sprint
+        })}
       </Left>
-      {/* <Right>
+      <Right>
         <SprintDetails />
-      </Right> */}
+      </Right>
     </Wrapper>
   )
 }
@@ -40,14 +39,10 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {}
-}
-export default Sprint
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(Sprint)
+export default connect(
+  mapStateToProps,
+  {}
+)(Sprint)
 
 const Wrapper = Style.div`
   display: flex;
