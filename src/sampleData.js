@@ -1,5 +1,9 @@
 export default {
-  locations: [],
+  locations: [
+    {id: 1, name: 'Project name', path: '/project'},
+    {id: 2, name: 'FeatureSet name', path: '/project/feature-set'},
+    {id: 0, name: 'Sprint name', path: '//project/feature-set/sprint'},
+  ],
   projects: [
     {
       id: 12,

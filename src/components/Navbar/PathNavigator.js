@@ -3,8 +3,9 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Style from 'styled-components'
 import HomeIcon from './assets/home icon.svg'
+import { navigate, NAVBAR } from '../../redux/actions/locations'
 
-const PathNavigator = ({ history, locations, clickOnNavLink }) => {
+const PathNavigator = ({ history, locations, navigate }) => {
   const goTo = (location, idx) => {
     let goToPath = ''
     if (location.path === 'project') {
@@ -18,17 +19,16 @@ const PathNavigator = ({ history, locations, clickOnNavLink }) => {
     }
 
     history.push(goToPath)
-    clickOnNavLink(idx)
   }
 
   return (
     <Wrapper>
-      <img alt='home' src={HomeIcon} onClick={() => goTo('/', 0)} />
+      <img alt='home' src={HomeIcon} onClick={() => navigate({id: 0, name: 'Home', path: '/'}, NAVBAR)} />
 
       {locations.map((location, idx) => {
         return (
           <>
-            <div onClick={() => goTo(location, idx + 1)}>{location.name}</div>
+            <div onClick={() => navigate({id: 0, name: 'Home', path: '/'}, NAVBAR)}>{location.name}</div>
             {idx < locations.length - 1 ? <span>|</span> : null}
           </>
         )
@@ -56,7 +56,7 @@ const mapDispatchToProps = dispatch => {
 export default withRouter(
   connect(
     mapStateToProps,
-    mapDispatchToProps
+    {navigate}
   )(PathNavigator)
 )
 

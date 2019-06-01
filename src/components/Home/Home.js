@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 const Home = ({ projects, goToProject }) => {
   return (
     <>
-      {projects.map((project, idx) => {
+      {/* {projects.map((project, idx) => {
         return (
           <p key={idx}>
             <NavLink
@@ -18,7 +18,8 @@ const Home = ({ projects, goToProject }) => {
             </NavLink>
           </p>
         )
-      })}
+      })} */}
+      Home
     </>
   )
 }
@@ -42,8 +43,8 @@ const mapDispatchToProps = dispatch => {
       })
   }
 }
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Home)
+export default Home
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(Home)

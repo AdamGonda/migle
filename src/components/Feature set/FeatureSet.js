@@ -6,7 +6,7 @@ import { getIdFromEndOfPath, findProperty } from '../../util'
 const FeatureSet = ({ sprints, goToSprint }) => {
   return (
     <ul>
-      {sprints.map(sprint => {
+      {/* {sprints.map(sprint => {
         return (
           <p>
             <NavLink
@@ -17,7 +17,8 @@ const FeatureSet = ({ sprints, goToSprint }) => {
             </NavLink>
           </p>
         )
-      })}
+      })} */}
+      Feature set
     </ul>
   )
 }
@@ -48,7 +49,8 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(FeatureSet)
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(FeatureSet)
+export default FeatureSet

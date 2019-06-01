@@ -1,31 +1,11 @@
-import { createStore } from 'redux'
-import sampleData from '../sampleData'
+import { createStore, combineReducers } from 'redux'
+import {locations} from './reducers/locations'
+import {projects} from './reducers/projects'
 
-const initialState = sampleData
 
-const rootReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'navigate with bar':
-      return {
-        ...state,
-        locations: [
-          ...state.locations.filter((x, idx) => idx < action.payload.idx)
-        ]
-      }
-
-    case 'navigate with link':
-      return {
-        ...state,
-        locations: [...state.locations, action.payload]
-      }
-
-    default:
-      return state
-  }
-}
+const rootReducer = combineReducers({locations: locations,projects});
 
 export default createStore(
   rootReducer,
-  initialState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )

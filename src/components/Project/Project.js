@@ -6,7 +6,7 @@ import { getIdFromEndOfPath, findProperty } from '../../util'
 const Project = ({ featureSets, goToFeatureSet }) => {
   return (
     <ul>
-      {featureSets.map(set => {
+      {/* {featureSets.map(set => {
         return (
           <p>
             <NavLink
@@ -17,7 +17,8 @@ const Project = ({ featureSets, goToFeatureSet }) => {
             </NavLink>
           </p>
         )
-      })}
+      })} */}
+      Project
     </ul>
   )
 }
@@ -45,8 +46,8 @@ const mapDispatchToProps = dispatch => {
       })
   }
 }
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Project)
+export default Project
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(Project)
