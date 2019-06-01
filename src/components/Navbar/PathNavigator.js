@@ -23,12 +23,12 @@ const PathNavigator = ({ history, locations, navigate }) => {
 
   return (
     <Wrapper>
-      <img alt='home' src={HomeIcon} onClick={() => navigate({id: 0, name: 'Home', path: '/'}, NAVBAR)} />
+      <img alt='home' src={HomeIcon} onClick={() => navigate(0, {name: 'Home', path: '/'}, NAVBAR)} />
 
       {locations.map((location, idx) => {
         return (
           <>
-            <div onClick={() => navigate({id: 0, name: 'Home', path: '/'}, NAVBAR)}>{location.name}</div>
+            <div onClick={() => navigate(idx + 1, {name: location.name, path: location.path}, NAVBAR)}>{location.name}</div>
             {idx < locations.length - 1 ? <span>|</span> : null}
           </>
         )
@@ -40,16 +40,6 @@ const PathNavigator = ({ history, locations, navigate }) => {
 const mapStateToProps = state => {
   return {
     locations: state.locations
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    clickOnNavLink: idx =>
-      dispatch({
-        type: 'navigate with bar',
-        payload: { idx }
-      })
   }
 }
 

@@ -8,7 +8,7 @@ export const locations = (state = initState, action) => {
   switch (true) {
     case action.type.includes(NAVIGATE_TO_LOCATION):
       if (action.type.includes(NAVBAR)) {
-        return state.filter((x, idx) => idx < action.payload.id)
+        return state.filter((x, idx) => idx < action.payload.idx)
 
       } else if (action.type.includes(LINK)) {
         return [...state, action.payload]
