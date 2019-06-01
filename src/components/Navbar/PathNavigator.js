@@ -56,32 +56,6 @@ const PathNavigator = ({ history, locations, navigateToLocation }) => {
   return (
     <Wrapper>
       {locations.map(displayLinks)}
-      {/* <img
-        alt="home"
-        src={HomeIcon}
-        onClick={() =>
-          navigateToLocation(0, { name: 'Home', path: '/' }, NAVBAR)
-        }
-      />
-
-      {locations.map((location, idx) => {
-        return (
-          <>
-            <div
-              onClick={() =>
-                navigateToLocation(
-                  idx + 1,
-                  { name: location.name, path: location.path },
-                  NAVBAR
-                )
-              }
-            >
-              {location.name}
-            </div>
-            {idx < locations.length - 1 ? <span>|</span> : null}
-          </>
-        )
-      })} */}
     </Wrapper>
   )
 }
