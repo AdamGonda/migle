@@ -21,9 +21,42 @@ const PathNavigator = ({ history, locations, navigateToLocation }) => {
     history.push(goToPath)
   }
 
+  const displayLinks = (location, idx) => {
+    if(idx == 0){
+      return (
+        <img
+        alt='Home'
+        src={HomeIcon}
+        onClick={() =>
+          navigateToLocation(idx, { name: location.name, path: location.path }, NAVBAR)
+        }
+      />
+      )
+    }
+    else {
+      return (
+        <>
+          <div
+            onClick={() =>
+              navigateToLocation(
+                idx + 1,
+                { name: location.name, path: location.path },
+                NAVBAR
+              )
+            }
+          >
+            {location.name}
+          </div>
+          {idx < locations.length - 1 ? <span>|</span> : null}
+        </>
+      )
+    }
+  }
+
   return (
     <Wrapper>
-      <img
+      {locations.map(displayLinks)}
+      {/* <img
         alt="home"
         src={HomeIcon}
         onClick={() =>
@@ -48,7 +81,7 @@ const PathNavigator = ({ history, locations, navigateToLocation }) => {
             {idx < locations.length - 1 ? <span>|</span> : null}
           </>
         )
-      })}
+      })} */}
     </Wrapper>
   )
 }
