@@ -1,31 +1,20 @@
-import { createStore } from 'redux'
-import sampleData from '../sampleData'
+import { compose, createStore, combineReducers, applyMiddleware } from 'redux'
+import { locations } from './reducers/locations'
+import { projects } from './reducers/projects'
+import { featureSets } from './reducers/featureSets'
+import { sprints } from './reducers/sprints'
+import { stories } from './reducers/stories'
 
-const initialState = sampleData
 
-const rootReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'navigate with bar':
-      return {
-        ...state,
-        locations: [
-          ...state.locations.filter((x, idx) => idx < action.payload.idx)
-        ]
-      }
+const rootReducer = combineReducers({ locations: locations, projects, featureSets, sprints, stories})
 
-    case 'navigate with link':
-      return {
-        ...state,
-        locations: [...state.locations, action.payload]
-      }
+const featureMiddleware = []
 
-    default:
-      return state
-  }
-}
+const coreMiddleware = []
 
-export default createStore(
-  rootReducer,
-  initialState,
+const enhancer = compose(
+  applyMiddleware(...featureMiddleware, ...coreMiddleware),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
+
+export default createStore(rootReducer, enhancer)

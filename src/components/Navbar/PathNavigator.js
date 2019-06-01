@@ -3,38 +3,37 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Style from 'styled-components'
 import HomeIcon from './assets/home icon.svg'
+import { navigateTo, NAVBAR } from '../../redux/actions/locations'
 
-const PathNavigator = ({ history, locations, clickOnNavLink }) => {
-  const goTo = (location, idx) => {
-    let goToPath = ''
-    if (location.path === 'project') {
-      goToPath = `/${location.path}/${location.id}`
-    } else if (location.path === 'feature-set') {
-      goToPath = `/project/${location.path}/${location.id}`
-    } else if (location.path === 'sprint') {
-      goToPath = `/project/feature-set/${location.path}/${location.id}`
-    } else if (location.path === 'story') {
-      goToPath = `/project/feature-set/sprint/${location.id}`
+const PathNavigator = ({ history, locations, navigateTo }) => {
+  const displayLinks = (location, idx) => {
+    if (idx == 0) {
+      return (
+        <img
+          alt="Home"
+          src={HomeIcon}
+          onClick={() => {
+            navigateTo(location, NAVBAR, { idx, history })
+          }}
+        />
+      )
+    } else {
+      return (
+        <>
+          <div
+            onClick={() => {
+              navigateTo(location, NAVBAR, { idx: idx + 1, history })
+            }}
+          >
+            {location.name}
+          </div>
+          {idx < locations.length - 1 ? <span>|</span> : null}
+        </>
+      )
     }
-
-    history.push(goToPath)
-    clickOnNavLink(idx)
   }
 
-  return (
-    <Wrapper>
-      <img alt='home' src={HomeIcon} onClick={() => goTo('/', 0)} />
-
-      {locations.map((location, idx) => {
-        return (
-          <>
-            <div onClick={() => goTo(location, idx + 1)}>{location.name}</div>
-            {idx < locations.length - 1 ? <span>|</span> : null}
-          </>
-        )
-      })}
-    </Wrapper>
-  )
+  return <Wrapper>{locations.map(displayLinks)}</Wrapper>
 }
 
 const mapStateToProps = state => {
@@ -43,20 +42,10 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    clickOnNavLink: idx =>
-      dispatch({
-        type: 'navigate with bar',
-        payload: { idx }
-      })
-  }
-}
-
 export default withRouter(
   connect(
     mapStateToProps,
-    mapDispatchToProps
+    { navigateTo }
   )(PathNavigator)
 )
 

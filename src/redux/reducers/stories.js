@@ -1,8 +1,8 @@
 import sampleData from '../../sampleData'
 
-const initState = sampleData.projects
+const initState = sampleData.stories
 
-export const project = (state = initState, action) => {
+export const stories = (state = initState, action) => {
   switch (action.type) {
     
     default:

@@ -1,5 +1,7 @@
 export default {
-  locations: [],
+  locations: [
+    {id: 0, name: 'Home', path: '/'},
+  ],
   projects: [
     {
       id: 12,

@@ -39,13 +39,9 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {}
-}
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {}
 )(Sprint)
 
 const Wrapper = Style.div`
