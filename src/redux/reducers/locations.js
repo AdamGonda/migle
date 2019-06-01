@@ -1,4 +1,4 @@
-import { NAVIGATE_TO_LOCATION, NAVBAR, LINK } from '../actions/locations'
+import { NAVIGATE_TO, NAVBAR, LINK } from '../actions/locations'
 import sampleData from '../../sampleData'
 
 const initState = sampleData.locations
@@ -6,7 +6,7 @@ const initState = sampleData.locations
 export const locations = (state = initState, action) => {
   console.log('Hello state', state)
   switch (true) {
-    case action.type.includes(NAVIGATE_TO_LOCATION):
+    case action.type.includes(NAVIGATE_TO):
       if (action.type.includes(NAVBAR)) {
         return state.filter((x, idx) => {
           if (idx == 0) {
