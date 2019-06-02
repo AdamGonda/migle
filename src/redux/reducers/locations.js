@@ -17,8 +17,6 @@ export const locations = (state = initState, action) => {
           }
         })
       } else if (action.type.includes(LINK)) {
-        
-        
         return [...state, action.payload.to]
       }
     default:
