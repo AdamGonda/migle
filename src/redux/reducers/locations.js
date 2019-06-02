@@ -8,7 +8,7 @@ export const locations = (state = initState, action) => {
     case action.type.includes(NAVIGATE_TO):
       if (action.type.includes(NAVBAR)) {
         return state.filter((location, idx) => {
-          if (idx == 0) {
+          if (idx === 0) {
             changeLocationUsingReactRouterHistory(action, calcPath(action))
             return idx <= action.payload.idx
           } else {
@@ -19,6 +19,7 @@ export const locations = (state = initState, action) => {
       } else if (action.type.includes(LINK)) {
         return [...state, action.payload.to]
       }
+      break
     default:
       return state
   }
@@ -27,7 +28,7 @@ export const locations = (state = initState, action) => {
 const calcPath = action => {
   const location = action.payload.to
 
-  if (location.path == '/') {
+  if (location.path === '/') {
     return '/'
   } else if (location.path === 'project') {
     return `/${location.path}/${location.id}`

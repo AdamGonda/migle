@@ -10,7 +10,7 @@ const Project = ({ featureSets, navigateTo }) => {
       <h1 style={{ color: 'white' }}>Project</h1>
       {featureSets.map(set => {
         return (
-          <p>
+          <p key={set.id}>
             <NavLink
               to={`${set.path}/${set.id}`}
               onClick={() => navigateTo(set, LINK, {})}
@@ -30,7 +30,7 @@ const mapStateToProps = (state, ownProps) => {
       'projects',
       state,
       getIdFromEndOfPath(ownProps)
-    ).featureSetIds.map(setId => state.featureSets.find(set => setId == set.id))
+    ).featureSetIds.map(setId => state.featureSets.find(set => setId === set.id))
   }
 }
 

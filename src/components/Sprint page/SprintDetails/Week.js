@@ -10,19 +10,19 @@ export default ({ days }) => {
       </Header>
       <Body>
         <Days>
-          {days.map(day => (
-            <p>{day.name}</p>
+          {days.map((day, idx) => (
+            <p key={idx} >{day.name}</p>
           ))}
         </Days>
 
         <Data>
-          {days.map(day => (
-            <p>{day.remaining}</p>
+          {days.map((day, idx) => (
+            <p key={idx} >{day.remaining}</p>
           ))}
         </Data>
         <Data>
-          {days.map(day => (
-            <p>{day.ideal}</p>
+          {days.map((day, idx) => (
+            <p key={idx} >{day.ideal}</p>
           ))}
         </Data>
       </Body>

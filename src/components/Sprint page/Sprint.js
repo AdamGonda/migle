@@ -12,6 +12,7 @@ const Sprint = ({ stories }) => {
         {stories.map(story => {
           return (
             <Task
+              key={story.id}
               id={story.id}
               dependencies={story.dependencies}
               story={story.story}
@@ -35,7 +36,7 @@ const mapStateToProps = (state, ownProps) => {
       'sprints',
       state,
       getIdFromEndOfPath(ownProps)
-    ).storyIds.map(storyId => state.stories.find(story => storyId == story.id))
+    ).storyIds.map(storyId => state.stories.find(story => storyId === story.id))
   }
 }
 

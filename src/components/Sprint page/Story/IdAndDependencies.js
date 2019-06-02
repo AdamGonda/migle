@@ -27,7 +27,7 @@ export default ({id, dependencies}) => {
                     <p>{id}</p>
                 </JustId> :
                 <IdAndDependencies>
-                    {showFirstNDependenciesWith(3, (item, idx) => <span>{idx === 0 ? item : `, ${item}`}</span>)}
+                    {showFirstNDependenciesWith(3, (item, idx) => <span key={idx} >{idx === 0 ? item : `, ${item}`}</span>)}
                     <p>{id}</p>
                 </IdAndDependencies>
             }

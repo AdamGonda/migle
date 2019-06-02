@@ -10,8 +10,9 @@ const FeatureSet = ({ sprints, navigateTo }) => {
     <h1 style={{color:'white'}}>Feature set</h1>
       {sprints.map(sprint => {
         return (
-          <p>
+          <p key={sprint.id}>
             <NavLink
+              
               to={`${sprint.path}/${sprint.id}`}
               onClick={() => navigateTo(sprint, LINK, {})}
             >
@@ -31,7 +32,7 @@ const mapStateToProps = (state, ownProps) => {
       state,
       getIdFromEndOfPath(ownProps)
     ).sprintIds.map(sprintId =>
-      state.sprints.find(sprint => sprintId == sprint.id)
+      state.sprints.find(sprint => sprintId === sprint.id)
     )
   }
 }

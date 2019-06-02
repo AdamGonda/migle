@@ -7,9 +7,10 @@ import { navigateTo, NAVBAR } from '../../redux/actions/locations'
 
 const PathNavigator = ({ history, locations, navigateTo }) => {
   const displayLinks = (location, idx) => {
-    if (idx == 0) {
+    if (idx === 0) {
       return (
         <img
+          key={idx}
           alt="Home"
           src={HomeIcon}
           onClick={() => {
