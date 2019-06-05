@@ -3,18 +3,19 @@ import { connect } from 'react-redux'
 import Style from 'styled-components'
 import Task from './Story/Story'
 import SprintDetails from './SprintDetails/SprintDetails'
-import { getIdFromEndOfPath, findProperty } from '../../util'
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
 
 const Sprint = ({ stories }) => {
   return (
     <Wrapper>
       <Left>
-        {stories.map(story => {
+        {stories && stories.map(story => {
           return (
             <Task
               key={story.id}
-              id={story.id}
-              dependencies={story.dependencies}
+              //id={story.id}
+              //dependencies={story.dependencies}
               story={story.story}
               estimation={story.estimation}
               responsible={story.responsible}
@@ -30,19 +31,21 @@ const Sprint = ({ stories }) => {
   )
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    stories: findProperty(
-      'sprints',
-      state,
-      getIdFromEndOfPath(ownProps)
-    ).storyIds.map(storyId => state.stories.find(story => storyId === story.id))
-  }
+const mapStateToProps = (state) => {
+  return {stories: state.fireStore.ordered.stories}
 }
 
-export default connect(
-  mapStateToProps,
-  {}
+export default compose(
+  connect(
+    mapStateToProps,
+    {}
+  ),
+  firestoreConnect(props => [
+    {
+      collection: 'stories',
+      where: ['parent', '==', props.match.params.id]
+    }
+  ])
 )(Sprint)
 
 const Wrapper = Style.div`

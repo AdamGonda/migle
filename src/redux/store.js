@@ -1,19 +1,25 @@
 import { compose, createStore, combineReducers, applyMiddleware } from 'redux'
 import { locations } from './reducers/locations'
-import { projects } from './reducers/projects'
-import { featureSets } from './reducers/featureSets'
-import { sprints } from './reducers/sprints'
-import { stories } from './reducers/stories'
+import { reduxFirestore, getFirestore } from 'redux-firestore'
+import { reduxReactFirebase, getFirebase } from 'react-redux-firebase'
+import thunk from 'redux-thunk'
+import firebase from '../config/fbConfig'
+import { firestoreReducer } from 'redux-firestore'
 
-
-const rootReducer = combineReducers({ locations: locations, projects, featureSets, sprints, stories})
-
-const featureMiddleware = []
-
-const coreMiddleware = []
+const rootReducer = combineReducers({
+  locations,
+  fireStore: firestoreReducer
+})
 
 const enhancer = compose(
-  applyMiddleware(...featureMiddleware, ...coreMiddleware),
+  applyMiddleware(
+    thunk.withExtraArgument({
+      getFirestore,
+      getFirebase
+    })
+  ),
+  reduxFirestore(firebase),
+  reduxReactFirebase(firebase),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
