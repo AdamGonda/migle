@@ -16,7 +16,7 @@ const Sprint = ({ stories }) => {
               key={story.id}
               //id={story.id}
               //dependencies={story.dependencies}
-              story={story.story}
+              description={story.description}
               estimation={story.estimation}
               responsible={story.responsible}
               status={story.status}

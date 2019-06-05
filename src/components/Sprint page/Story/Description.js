@@ -1,22 +1,22 @@
 import React from 'react'
 import Style from 'styled-components'
 
-export default ({ story }) => {
+export default ({ description }) => {
   const charLimit = 75
   const btnText = 'more'
 
   return (
     <Wrapper>
-      {story.length > charLimit ? (
+      {description.length > charLimit ? (
         <>
           <p>
-            {story.substring(0, charLimit)}
+            {description.substring(0, charLimit)}
             <span>...</span>
           </p>
           <button>{btnText}</button>
         </>
       ) : (
-        <p>{story}</p>
+        <p>{description}</p>
       )}
     </Wrapper>
   )

@@ -6,12 +6,12 @@ import StatusIndicator3 from './assets/status indicator 3.svg'
 import StatusIndicator4 from './assets/status indicator 4.svg'
 import Separator from './assets/separator.svg'
 import IdAndDependencies from './IdAndDependencies'
-import Story from './Story description'
+import Description from './Description'
 
 export default ({
   id,
   dependencies,
-  story,
+  description,
   estimation,
   responsible,
   status
@@ -38,7 +38,7 @@ export default ({
   return (
     <Wrapper>
       <IdAndDependencies id={id} dependencies={dependencies} />
-      <Story story={story} />
+      <Description description={description} />
 
       {separator()}
 
