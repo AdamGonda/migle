@@ -1,7 +1,6 @@
 import { NAVIGATE_TO, NAVBAR, LINK } from '../actions/locations'
-import sampleData from '../../sampleData'
 
-const initState = sampleData.locations
+const initState = [{ id: 0, name: 'Home', type: '' }]
 
 export const locations = (state = initState, action) => {
   switch (true) {
@@ -28,17 +27,17 @@ export const locations = (state = initState, action) => {
 const calcPath = action => {
   const location = action.payload.to
 
-  if (location.path === '/') {
+  if (location.type === '') {
     return '/'
-  } else if (location.path === 'project') {
-    return `/${location.path}/${location.id}`
-  } else if (location.path === 'feature-set') {
-    return `/project/${location.path}/${location.id}`
-  } else if (location.path === 'sprint') {
-    return `/project/feature-set/${location.path}/${location.id}`
-  } else if (location.path === 'story') {
+  } else if (location.type === 'project') {
+    return `/${location.type}/${location.id}`
+  } else if (location.type === 'feature-set') {
+    return `/project/${location.type}/${location.id}`
+  } else if (location.type === 'sprint') {
+    return `/project/feature-set/${location.type}/${location.id}`
+  } else if (location.type === 'story') {
     return `/project/feature-set/sprint/${location.id}`
   }
 }
-const changeLocationUsingReactRouterHistory = (action, path) =>
-  action.payload.history.push(path)
+const changeLocationUsingReactRouterHistory = (action, type) =>
+  action.payload.history.push(type)
