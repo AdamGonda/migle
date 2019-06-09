@@ -1,6 +1,13 @@
+:root{
+    --box-color: #DFE1E6;
+    --nav-bar-color: #0094FF;
+    --background-color: #0068B2;
+    --dark-text-color: #2D4D60;
+}
+
 body {
     padding: 0px;
     margin: 0px;
     font-family: 'Montserrat', sans-serif;
-    background-color: #0068B2;
+    background-color: var(--background-color);
 }
