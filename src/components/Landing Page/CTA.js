@@ -1,15 +1,15 @@
 import React from 'react'
 import Style from 'styled-components'
 
-export default () => (
+export default ({signUpAction, loginAction}) => (
   <Wrapper>
-    <SignUp>Sign up</SignUp>
-    <Login>
+    <SignUp onClick={signUpAction}>Sign up</SignUp>
+    <Bottom>
       <br />
       <span>
-        or <button>login</button>
+        or <Login onClick={loginAction}>login</Login>
       </span>
-    </Login>
+    </Bottom>
   </Wrapper>
 )
 
@@ -33,13 +33,33 @@ const SignUp = Style.button`
   }
 `
 
+const Login = Style.button`
+  width: auto;
+  font-size: 15px;
+  border: none;
+  background-color: rgba(0,0,0,0);
+  padding: 8px 15px 10px 2px;
+  border-radius: 5px;
+  color: white;
+  font-weight: 400;
+
+  :hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  :focus {
+    outline: none;
+  }
+`
+
 const Wrapper = Style.div`
   color:white;
   grid-row: 9 / 10;
   align-self: end;
 `
 
-const Login = Style.div`
+const Bottom = Style.div`
   padding-left: 10px;
   font-size: 13px;
   width: 100px;
@@ -51,25 +71,5 @@ const Login = Style.div`
     color: white;
     display: inline-block;
     margin: 0px auto;
-  }
-
-  button {
-    width: auto;
-    font-size: 15px;
-    border: none;
-    background-color: rgba(0,0,0,0);
-    padding: 8px 15px 10px 2px;
-    border-radius: 5px;
-    color: white;
-    font-weight: 400;
-  }
-
-  button:hover {
-    text-decoration: underline;
-    cursor: pointer;
-  }
-
-  button:focus {
-    outline: none;
   }
 `

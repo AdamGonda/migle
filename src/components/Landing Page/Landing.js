@@ -10,7 +10,7 @@ const Landing = () => {
   return (
     <Wrapper>
       <Hero title={'fun, easy'} subtitle={'project management'} />
-      <CTA />
+      <CTA signUpAction={()=>console.log('sign up')} loginAction={()=>console.log('login')}/>
       <Scroll />
     </Wrapper>
   )
