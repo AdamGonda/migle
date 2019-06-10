@@ -17,6 +17,18 @@ const Wrapper = Style.div`
   height: 230px;
   position: relative;
   grid-row: 7 / span 2;
+
+  animation: showUp 1s ease-in;
+
+  @keyframes showUp {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
   
   img {
       width: 100%;

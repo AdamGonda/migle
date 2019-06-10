@@ -1,17 +1,35 @@
 import React from 'react'
 import Style from 'styled-components'
 
-export default ({signUpAction, loginAction}) => (
+export default ({signUpBtnAction, loginBtnAction}) => (
   <Wrapper>
-    <SignUp onClick={signUpAction}>Sign up</SignUp>
+    <SignUp onClick={signUpBtnAction}>Sign up</SignUp>
     <Bottom>
       <br />
       <span>
-        or <Login onClick={loginAction}>login</Login>
+        or <Login onClick={loginBtnAction}>login</Login>
       </span>
     </Bottom>
   </Wrapper>
 )
+
+const Wrapper = Style.div`
+  color:white;
+  grid-row: 9 / 10;
+  align-self: end;
+
+  animation: showUp 1.5s ease-in;
+
+  @keyframes showUp {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+`
 
 const SignUp = Style.button`
   width: 110px;
@@ -32,6 +50,20 @@ const SignUp = Style.button`
     cursor: pointer;
   }
 `
+const Bottom = Style.div`
+  padding-left: 10px;
+  font-size: 13px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+
+  span {
+    margin: 0px auto;
+    color: white;
+    display: inline-block;
+    margin: 0px auto;
+  }
+`
 
 const Login = Style.button`
   width: auto;
@@ -50,26 +82,5 @@ const Login = Style.button`
 
   :focus {
     outline: none;
-  }
-`
-
-const Wrapper = Style.div`
-  color:white;
-  grid-row: 9 / 10;
-  align-self: end;
-`
-
-const Bottom = Style.div`
-  padding-left: 10px;
-  font-size: 13px;
-  width: 100px;
-  display: flex;
-  justify-content: center;
-
-  span {
-    margin: 0px auto;
-    color: white;
-    display: inline-block;
-    margin: 0px auto;
   }
 `
