@@ -38,7 +38,7 @@ const App = ({ isLoggedIn }) => {
 
 const mapStateToProps = state => {
   return {
-    isLoggedIn: state.auth.isLoggedIn
+    isLoggedIn: state.fireBase.auth.uid
   }
 }
 

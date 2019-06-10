@@ -6,11 +6,13 @@ import { reduxReactFirebase, getFirebase } from 'react-redux-firebase'
 import thunk from 'redux-thunk'
 import firebase from '../config/fbConfig'
 import { firestoreReducer } from 'redux-firestore'
+import { firebaseReducer } from 'react-redux-firebase'
 
 const rootReducer = combineReducers({
   locations,
   auth,
-  fireStore: firestoreReducer
+  fireStore: firestoreReducer,
+  fireBase: firebaseReducer
 })
 
 const enhancer = compose(
