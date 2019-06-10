@@ -5,31 +5,34 @@ import { navigateTo, LINK } from '../../redux/actions/locations'
 import { createProject } from '../../redux/actions/project'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
+import Landing from '../Landing Page/Landing'
 
-const Home = ({ projects, navigateTo, createProject }) => {
+const Home = ({ projects, isLoggedIn, navigateTo, createProject }) => {
   return (
     <>
-      <h1 style={{ color: 'white' }}>Home</h1>
-      {projects &&
-        projects.map((project, idx) => {
-          return (
-            <p key={idx}>
-              <NavLink
-                to={`${project.type}/${project.id}`}
-                onClick={() => navigateTo(project, LINK, {})}
-              >
-                {project.name}
-              </NavLink>
-            </p>
-          )
-        })}
+    <h1 style={{color:'white'}}>Home set</h1>
+      {projects && projects.map(project => {
+        return (
+          <p key={project.id}>
+            <NavLink
+              to={`${project.type}/${project.id}`}
+              onClick={() => navigateTo(project, LINK, {})}
+            >
+              {project.name}
+            </NavLink>
+          </p>
+        )
+      })}
     </>
   )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
+  console.log(state)
+
   return {
-    projects: state.fireStore.ordered.projects
+    projects: state.fireStore.ordered.projects,
+    isLoggedIn: state.auth.isLoggedIn
   }
 }
 
@@ -38,5 +41,5 @@ export default compose(
     mapStateToProps,
     { navigateTo, createProject }
   ),
-  firestoreConnect([{ collection: 'projects'}])
+  firestoreConnect([{ collection: 'projects' }])
 )(Home)
