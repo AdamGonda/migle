@@ -14,18 +14,18 @@ const Home = ({ projects, createProject }) => {
     <Wrapper>
       <Module
         icon={<img alt="star" src={OutliedStarIcon} />}
-        name={'Starred'}
+        name={'Starred projects'}
         items={projects}
       />
       <Module
         icon={<img alt="star" src={PersonIcon} />}
-        name={'Personal'}
+        name={'Personal projects'}
         // items={projects}
         // moduleAction={createProject}
       />
       <Module
         icon={<img alt="star" src={TeamIcon} style={{ width: '25px' }} />}
-        name={'Team'}
+        name={'Team projects'}
         // items={projects}
         // moduleAction={createProject}
       />
