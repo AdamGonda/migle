@@ -2,7 +2,7 @@
 
 It is a collaborative agile project planner.
 
-I liked to learn React, Redux, Spring, Websockets and a lot's of other stuff on a bigger project so I thought I will create a Trello copy because that way I wouldn't have to bother to try to come up with the product idea, just with an implementation. But I decided to create something else because I found a use case for it, a real-life problem.
+I liked to learn React, Redux, Firebase and a lot's of other stuff on a bigger project so I thought I will create a Trello copy because that way I wouldn't have to bother to try to come up with the product idea, just with an implementation. But I decided to create something else because I found a use case for it, a real-life problem.
 
 So we used google spreadsheets so far to organize our projects that way we get features like:
 - Keep the user stories organized. 
