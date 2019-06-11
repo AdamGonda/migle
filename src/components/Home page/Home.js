@@ -1,33 +1,39 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { navigateTo, LINK } from '../../redux/actions/locations'
+import { compose } from 'redux'
 import { createProject } from '../../redux/actions/project'
 import { firestoreConnect } from 'react-redux-firebase'
-import { compose } from 'redux'
+import Style from 'styled-components'
+import Module from '../Module/Module'
+import OutliedStarIcon from './assets/outlined star icon.svg'
+import PersonIcon from './assets/person icon.svg'
+import TeamIcon from './assets/team icon.svg'
 
-const Home = ({ projects, navigateTo, createProject }) => {
+const Home = ({ projects, createProject }) => {
   return (
-    <>
-      <h1 style={{ color: 'white' }}>Home</h1>
-      {projects &&
-        projects.map((project, idx) => {
-          return (
-            <p key={idx}>
-              <NavLink
-                to={`${project.type}/${project.id}`}
-                onClick={() => navigateTo(project, LINK, {})}
-              >
-                {project.name}
-              </NavLink>
-            </p>
-          )
-        })}
-    </>
+    <Wrapper>
+      <Module
+        icon={<img alt="star" src={OutliedStarIcon} />}
+        name={'Starred'}
+        // items={projects}
+      />
+      <Module
+        icon={<img alt="star" src={PersonIcon} />}
+        name={'Personal'}
+        // items={projects}
+        // moduleAction={createProject}
+      />
+      <Module
+        icon={<img alt="star" src={TeamIcon} style={{ width: '25px' }} />}
+        name={'Team'}
+        // items={projects}
+        // moduleAction={createProject}
+      />
+    </Wrapper>
   )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     projects: state.fireStore.ordered.projects
   }
@@ -36,7 +42,11 @@ const mapStateToProps = (state) => {
 export default compose(
   connect(
     mapStateToProps,
-    { navigateTo, createProject }
+    { createProject }
   ),
-  firestoreConnect([{ collection: 'projects'}])
+  firestoreConnect([{ collection: 'projects' }])
 )(Home)
+
+const Wrapper = Style.div`
+  padding: 15px 60px;
+`
