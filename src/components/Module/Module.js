@@ -12,12 +12,13 @@ const Module = ({ name, icon, items, moduleAction }) => {
       </Title>
       <Body>
         {items ? (
-          items.map(item => (
+          items.map((item, idx) => (
             <Item
               key={item.id}
               id={item.id}
               type={item.type}
               name={item.name}
+              animationDelay={idx}
             />
           ))
         ) : (

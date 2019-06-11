@@ -6,9 +6,9 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { navigateTo, LINK } from '../../redux/actions/locations'
 
-const Item = ({ id, type, name, navigateTo }) => {
+const Item = ({ id, type, name, navigateTo, animationDelay }) => {  
   return (
-    <Wrapper>
+    <Wrapper animationDelay={animationDelay}>
       <span>...</span>
       <NavLink
         style={{ textDecoration: 'none' }}
@@ -47,6 +47,20 @@ const Wrapper = Style.div`
   font-size: 17px;
   font-weight: 500;
   text-align: left;
+
+  animation: showUp ${props => 0.5 + (props.animationDelay * 0.5)}s;
+
+  @keyframes showUp {
+    0% {
+      transform: translate(0px, -20px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translate(0px, 0px);
+      opacity: 1;
+    }
+  }
 
   span {
     visibility: hidden;
