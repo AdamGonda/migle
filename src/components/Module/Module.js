@@ -3,38 +3,60 @@ import Style from 'styled-components'
 import Item from './Item'
 import AddNewIcon from './assets/add new board icon.svg'
 
-const Module = ({ name, icon, items, moduleAction }) => {
+const Module = ({ name, icon, items, moduleAction, isEmpty, match }) => {
+  const itemsOrLoading = () => {
+    return items ? (
+      items.map((item, idx) => (
+        <Item
+          key={item.id}
+          id={item.id}
+          type={item.type}
+          name={item.name}
+          animationDelay={idx}
+        />
+      ))
+    ) : (
+      <LodingIndicator>
+        <div />
+      </LodingIndicator>
+    )
+  }
+
+  const showActionBtnConditionaly = () => {
+    return !moduleAction ? null : (
+      <img
+        style={{ cursor: 'pointer' }}
+        alt="add new"
+        src={AddNewIcon}
+        onClick={moduleAction}
+      />
+    )
+  }
+
+  const isParentsItems = () => !isEmpty(items) && items[0].parent == match.params.id
+
+  const showItems = () => {
+    if (isEmpty && match) {
+      if (isParentsItems()) {
+        return <>{itemsOrLoading()}</>
+      }
+    } else {
+      return (
+        <>
+          {itemsOrLoading()}
+          {showActionBtnConditionaly()}
+        </>
+      )
+    }
+  }
+
   return (
     <Wrapper>
       <Title>
         {icon}
         <p>{name}</p>
       </Title>
-      <Body>
-        {items ? (
-          items.map((item, idx) => (
-            <Item
-              key={item.id}
-              id={item.id}
-              type={item.type}
-              name={item.name}
-              animationDelay={idx}
-            />
-          ))
-        ) : (
-          <LodingIndicator>
-            <div />
-          </LodingIndicator>
-        )}
-        {!moduleAction ? null : (
-          <img
-            style={{ cursor: 'pointer' }}
-            alt="add new"
-            src={AddNewIcon}
-            onClick={moduleAction}
-          />
-        )}
-      </Body>
+      <Body>{showItems()}</Body>
     </Wrapper>
   )
 }
