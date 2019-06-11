@@ -8,10 +8,10 @@ import FeatureSet from './components/Feature set page/FeatureSet'
 import Sprint from './components/Sprint page/Sprint'
 import Landing from './components/Landing Page/Landing'
 
-const App = ({ isLoggedIn }) => {
+const App = ({ isLoggedIn, firebaseAuthIsLoaded }) => {
   return (
     <Router>
-      {isLoggedIn ? (
+      {!firebaseAuthIsLoaded ? null : isLoggedIn ? (
         <>
           <Navbar />
           <Switch>
@@ -38,8 +38,12 @@ const App = ({ isLoggedIn }) => {
 
 const mapStateToProps = state => {
   return {
+    firebaseAuthIsLoaded: state.fireBase.auth.isLoaded,
     isLoggedIn: state.fireBase.auth.uid
   }
 }
 
-export default connect(mapStateToProps, null)(App)
+export default connect(
+  mapStateToProps,
+  null
+)(App)
