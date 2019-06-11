@@ -15,7 +15,7 @@ const Home = ({ projects, createProject }) => {
       <Module
         icon={<img alt="star" src={OutliedStarIcon} />}
         name={'Starred'}
-        // items={projects}
+        items={projects}
       />
       <Module
         icon={<img alt="star" src={PersonIcon} />}
@@ -35,7 +35,8 @@ const Home = ({ projects, createProject }) => {
 
 const mapStateToProps = state => {
   return {
-    projects: state.fireStore.ordered.projects
+    projects: state.fireStore.ordered.projects,
+    isLoggedIn: state.auth.isLoggedIn
   }
 }
 
