@@ -1,28 +1,34 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import Style from 'styled-components'
 import { connect } from 'react-redux'
-import { navigateTo, LINK } from '../../redux/actions/locations'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
+import Module from '../Module/Module'
+import OutliedStarIcon from './assets/outlined star icon.svg'
+import OngoingIcon from './assets/ongoing icon.svg'
+import DoneIcon from './assets/done icon.svg'
 
-const Project = ({ sprints, navigateTo }) => {
+const Project = ({ sprints }) => {
   return (
-    <>
-      <h1 style={{ color: 'white' }}>Project</h1>
-      {sprints &&
-        sprints.map(item => {
-          return (
-            <p key={item.id}>
-              <NavLink
-                to={`${item.type}/${item.id}`}
-                onClick={() => navigateTo(item, LINK, {})}
-              >
-                {item.name}
-              </NavLink>
-            </p>
-          )
-        })}
-    </>
+    <Wrapper>
+      <Module
+        icon={<img alt="star" src={OutliedStarIcon} />}
+        name={'Starred sprints'}
+        items={sprints}
+      />
+
+      <Module
+        icon={<img alt="star" src={OngoingIcon} />}
+        name={'Ongoing sprints'}
+        items={sprints}
+      />
+
+      <Module
+        icon={<img alt="star" src={DoneIcon} />}
+        name={'Done sprints'}
+        items={sprints}
+      />
+    </Wrapper>
   )
 }
 
@@ -35,7 +41,7 @@ const mapStateToProps = state => {
 export default compose(
   connect(
     mapStateToProps,
-    { navigateTo }
+    null
   ),
   firestoreConnect(props => [
     {
@@ -44,3 +50,7 @@ export default compose(
     }
   ])
 )(Project)
+
+const Wrapper = Style.div`
+  padding: 15px 60px;
+`
