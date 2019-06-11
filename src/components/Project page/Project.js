@@ -5,19 +5,19 @@ import { navigateTo, LINK } from '../../redux/actions/locations'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 
-const Project = ({ featureSets, navigateTo }) => {
+const Project = ({ sprints, navigateTo }) => {
   return (
     <>
       <h1 style={{ color: 'white' }}>Project</h1>
-      {featureSets &&
-        featureSets.map(set => {
+      {sprints &&
+        sprints.map(item => {
           return (
-            <p key={set.id}>
+            <p key={item.id}>
               <NavLink
-                to={`${set.type}/${set.id}`}
-                onClick={() => navigateTo(set, LINK, {})}
+                to={`${item.type}/${item.id}`}
+                onClick={() => navigateTo(item, LINK, {})}
               >
-                {set.name}
+                {item.name}
               </NavLink>
             </p>
           )
@@ -28,7 +28,7 @@ const Project = ({ featureSets, navigateTo }) => {
 
 const mapStateToProps = state => {
   return {
-    featureSets: state.fireStore.ordered.featureSets
+    sprints: state.fireStore.ordered.sprints
   }
 }
 
@@ -39,7 +39,7 @@ export default compose(
   ),
   firestoreConnect(props => [
     {
-      collection: 'featureSets',
+      collection: 'sprints',
       where: ['parent', '==', props.match.params.id]
     }
   ])

@@ -31,12 +31,8 @@ const calcPath = action => {
     return '/'
   } else if (location.type === 'project') {
     return `/${location.type}/${location.id}`
-  } else if (location.type === 'feature-set') {
+  }  else if (location.type === 'sprint') {
     return `/project/${location.type}/${location.id}`
-  } else if (location.type === 'sprint') {
-    return `/project/feature-set/${location.type}/${location.id}`
-  } else if (location.type === 'story') {
-    return `/project/feature-set/sprint/${location.id}`
   }
 }
 const changeLocationUsingReactRouterHistory = (action, type) =>

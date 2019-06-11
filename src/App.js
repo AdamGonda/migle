@@ -19,12 +19,7 @@ const App = ({ isLoggedIn, firebaseAuthIsLoaded }) => {
             <Route exact path={'/project/:id'} component={Project} />
             <Route
               exact
-              path={'/project/feature-set/:id'}
-              component={FeatureSet}
-            />
-            <Route
-              exact
-              path={'/project/feature-set/sprint/:id'}
+              path={'/project/sprint/:id'}
               component={Sprint}
             />
           </Switch>
