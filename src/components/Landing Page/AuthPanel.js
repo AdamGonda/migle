@@ -1,7 +1,14 @@
 import React from 'react'
 import Style from 'styled-components'
+import { connect } from 'react-redux'
 
-const Login = ({ dispatchAction, backToLandigPage }) => {
+const AuthPanel = ({
+  title,
+  inputItems,
+  dispatchAction,
+  backToLandigPage,
+  authError
+}) => {
   const [credentials, setCredentials] = React.useState({
     email: '',
     password: ''
@@ -17,19 +24,33 @@ const Login = ({ dispatchAction, backToLandigPage }) => {
   return (
     <Wrapper>
       <div>
-        <h1>Login</h1>
-        <label>email:</label>
-        <input type="text" name="email" onChange={handleChange} />
-        <label>password: </label>
-        <input type="password" name="password" onChange={handleChange} />
-        <LoginBtn onClick={dispatchAction(credentials)}>Login</LoginBtn>
-        <BackBtn onClick={backToLandigPage} >Go back</BackBtn>
+        <h1>{title}</h1>
+        {inputItems.map(item => (
+          <input
+            name={item.name}
+            type={item.type}
+            placeholder={item.placeholder}
+            onChange={handleChange}
+          />
+        ))}
+        {<AuthError>{authError && authError.message}</AuthError>}
+        <Submit onClick={dispatchAction(credentials)}>Submit</Submit>
+        <BackBtn onClick={backToLandigPage}>Go back</BackBtn>
       </div>
     </Wrapper>
   )
 }
 
-export default Login
+const mapStateToProps = state => {
+  return {
+    authError: state.auth.authError
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  null
+)(AuthPanel)
 
 const Wrapper = Style.div`
   display: grid;
@@ -63,6 +84,7 @@ const Wrapper = Style.div`
 
   input, button {
     display: block;
+    text-align: center;
   }
 
   input {
@@ -72,18 +94,23 @@ const Wrapper = Style.div`
     
   }
 `
+const AuthError = Style.div`
+  font-size: 13px;
+  color:yellow;
+  font-weight: 600;
+  text-align: center;
+`
 
-const LoginBtn = Style.button`
+const Submit = Style.button`
   margin-top: 45px;
-  width: 80px;
   font-size: 24px;
   border: none;
   background-color: white;
-  padding: 8px 10px 10px 10px;
+  padding: 8px 15px 10px 15px;
   border-radius: 3px;
   color: #2D4D60;
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 700;
 
   :focus {
     outline: none;
