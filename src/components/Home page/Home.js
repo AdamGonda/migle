@@ -39,7 +39,7 @@ const Home = ({ createPersonalProject, createTeamProject, uid }) => {
         fetchFrom={'personalProjects'}
         ownerIdForFetch={uid}
         moduleAction={(fireStoreFireBase, name) => {
-          const { fireStore, fireBase } = fireStoreFireBase
+          const { fireBase } = fireStoreFireBase
           createPersonalProject({ name, owner: fireBase.auth.uid })
         }}
         showItem={(item, idx) => {
@@ -62,7 +62,7 @@ const Home = ({ createPersonalProject, createTeamProject, uid }) => {
         fetchFrom={'memberships'}
         ownerIdForFetch={uid}
         moduleAction={(fireStoreFireBase, name) => {
-          const { fireStore, fireBase } = fireStoreFireBase
+          const { fireStore } = fireStoreFireBase
           const userMembershipId = fireStore.ordered.memberships[0].id
           createTeamProject({ name, owner: userMembershipId })
         }}
