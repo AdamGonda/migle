@@ -1,7 +1,5 @@
 export const createPersonalProject = project => {
   return (dispatch, getState, { getFireBase, getFirestore }) => {
-    console.log(project)
-
     const firestore = getFirestore()
     firestore
       .collection('personalProjects')
