@@ -13,7 +13,8 @@ const Module = ({
   fetchFrom,
   moduleAction,
   showItem,
-  filterFn
+  filterFn,
+  fireStoreFireBase
 }) => {
   return (
     <Wrapper>
@@ -26,7 +27,7 @@ const Module = ({
           items
             .filter(item => (filterFn ? filterFn(item) : true))
             .map((item, idx) => showItem(item, idx))}
-        {moduleAction && <ActionBtn src={AddNewIcon} onClick={moduleAction} />}
+        {moduleAction && <ActionBtn src={AddNewIcon} onClick={() => moduleAction(fireStoreFireBase)} />}
       </Body>
     </Wrapper>
   )
@@ -35,7 +36,7 @@ const Module = ({
 const mapStateToProps = (state, ownState) => {
   return {
     items: state.fireStore.ordered[ownState.fetchFrom],
-    uid: state.fireBase.auth.uid
+    fireStoreFireBase: {fireBase: state.fireBase, fireStore: state.fireStore}
   }
 }
 

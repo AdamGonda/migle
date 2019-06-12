@@ -1,15 +1,41 @@
-export const createProject = project => {
+export const createPersonalProject = project => {
   return (dispatch, getState, { getFireBase, getFirestore }) => {
+    console.log(project)
+
     const firestore = getFirestore()
     firestore
-      .collection('projects')
+      .collection('personalProjects')
       .add({
-        description: 'Hello baba',
-        name: 'nice',
-        sprintIds: [4,5,6],
-        type: 'project'
+        name: project.name,
+        type: 'personal-project',
+        owner: project.owner
       })
       .then(() => console.log('project created'))
       .catch(() => console.log('error happend'))
+  }
+}
+
+export const createTeamProject = project => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore()
+    const firebase = getFirebase()
+
+    firestore
+      .collection('teamProjects')
+      .add({
+        name: project.name,
+        type: 'team-project'
+      })
+      .then((resp) => {
+        firestore
+        .collection('memberships')
+        .doc(project.owner)
+        .update({
+          memberships: firebase.firestore.FieldValue.arrayUnion({name: project.name, id: resp.id, type: 'team-project'}),
+        })
+
+      })
+      .then(() => console.log('team project created and membership is created'))
+      .catch((err) => console.log(err))
   }
 }

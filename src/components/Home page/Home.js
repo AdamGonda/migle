@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { createProject } from '../../redux/actions/project'
+import { createPersonalProject, createTeamProject } from '../../redux/actions/project'
 import Style from 'styled-components'
 import Module from '../Module/Module'
 import OutliedStarIcon from './assets/outlined star icon.svg'
@@ -8,7 +8,7 @@ import Item from '../Module/Item'
 import PersonIcon from './assets/person icon.svg'
 import TeamIcon from './assets/team icon.svg'
 
-const Home = ({ createProject, uid }) => {
+const Home = ({ createPersonalProject, createTeamProject, uid }) => {
   return (
     <Wrapper>
       <Module
@@ -35,7 +35,10 @@ const Home = ({ createProject, uid }) => {
         name={'Personal projects'}
         fetchFrom={'personalProjects'}
         ownerIdForFetch={uid}
-        moduleAction={createProject}
+        moduleAction={fireStoreFireBase => {
+          const { fireStore, fireBase } = fireStoreFireBase
+          createPersonalProject({name: "hello new personal project", owner: fireBase.auth.uid})
+        }}
         showItem={(item, idx) => {
           return (
             <Item
@@ -55,8 +58,12 @@ const Home = ({ createProject, uid }) => {
         name={'Team projects'}
         fetchFrom={'memberships'}
         ownerIdForFetch={uid}
-        moduleAction={createProject}
-        showItem={(item, idx) =>
+        moduleAction={fireStoreFireBase => {
+          const { fireStore, fireBase } = fireStoreFireBase
+          const userMembershipId = fireStore.ordered.memberships[0].id
+          createTeamProject({name: "hello new team project", owner: userMembershipId})
+        }}
+        showItem={(item, idx) =>         
           item.memberships.map((item, idx) => (
             <Item
               key={item.id + idx}
@@ -80,9 +87,16 @@ const mapStateToProps = state => {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    createPersonalProject: project => dispatch(createPersonalProject(project)),
+    createTeamProject: project => dispatch(createTeamProject(project)),
+  }
+}
+
 export default connect(
   mapStateToProps,
-  { createProject }
+  mapDispatchToProps
 )(Home)
 
 const Wrapper = Style.div`
