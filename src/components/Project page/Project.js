@@ -1,65 +1,47 @@
 import React from 'react'
 import Style from 'styled-components'
 import { connect } from 'react-redux'
-import { firestoreConnect, isEmpty } from 'react-redux-firebase'
-import { compose } from 'redux'
 import Module from '../Module/Module'
 import OutliedStarIcon from './assets/outlined star icon.svg'
 import OngoingIcon from './assets/ongoing icon.svg'
 import DoneIcon from './assets/done icon.svg'
 
-const Project = ({ sprints, match }) => {
+const Project = ({ sprints, uid }) => {  
   return (
     <Wrapper>
       <Module
         icon={<img alt="star" src={OutliedStarIcon} />}
         name={'Starred sprints'}
-        items={sprints}
-        isEmpty={isEmpty}
-        match={match}
+        fetchFrom={'teamStarredProjects'}
+        ownerIdForFetch={uid}
       />
 
-      <Module
-        icon={<img alt="star" src={OngoingIcon} />}
+      {/* <Module
+        icon={<img alt="ongoing" src={OngoingIcon} />}
         name={'Ongoing sprints'}
-        items={sprints}
-        isEmpty={isEmpty}
-        match={match}
+        fetchFrom={'sprints'}
+        ownerIdForFetch={match.params.id}
       />
 
       <Module
-        icon={<img alt="star" src={DoneIcon} />}
+        icon={<img alt="done" src={DoneIcon} />}
         name={'Done sprints'}
-        items={sprints}
-        isEmpty={isEmpty}
-        match={match}
-      />
+        fetchFrom={'sprints'}
+        ownerIdForFetch={match.params.id}
+      /> */}
     </Wrapper>
   )
 }
 
 const mapStateToProps = state => {
   return {
-    sprints: state.fireStore.ordered.sprints
+    uid: state.fireBase.auth.uid
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-  }
-}
-
-export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
-  firestoreConnect(props => [
-    {
-      collection: 'sprints',
-      where: ['parent', '==', props.match.params.id]
-    }
-  ])
+export default connect(
+  mapStateToProps,
+  null
 )(Project)
 
 const Wrapper = Style.div`

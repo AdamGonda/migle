@@ -1,5 +1,5 @@
 const initState = {
-  isLoggedIn: false
+  loginError: false
 }
 
 export const auth = (state = initState, action) => {

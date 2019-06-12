@@ -1,33 +1,32 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { compose } from 'redux'
 import { createProject } from '../../redux/actions/project'
-import { firestoreConnect } from 'react-redux-firebase'
 import Style from 'styled-components'
 import Module from '../Module/Module'
 import OutliedStarIcon from './assets/outlined star icon.svg'
 import PersonIcon from './assets/person icon.svg'
 import TeamIcon from './assets/team icon.svg'
 
-const Home = ({ projects, createProject }) => {
+const Home = ({ createProject, uid }) => {
   return (
     <Wrapper>
       <Module
         icon={<img alt="star" src={OutliedStarIcon} />}
         name={'Starred projects'}
-        items={projects}
+        fetchFrom={'starredProjects'}
+        ownerIdForFetch={uid}
       />
       <Module
-        icon={<img alt="star" src={PersonIcon} />}
+        icon={<img alt="person" src={PersonIcon} />}
         name={'Personal projects'}
-        // items={projects}
-        // moduleAction={createProject}
+        fetchFrom={'projects'}
+        ownerIdForFetch={uid}
       />
       <Module
-        icon={<img alt="star" src={TeamIcon} style={{ width: '25px' }} />}
+        icon={<img alt="team" src={TeamIcon} style={{ width: '25px' }} />}
         name={'Team projects'}
-        // items={projects}
-        // moduleAction={createProject}
+        fetchFrom={'memberships'}
+        ownerIdForFetch={uid}
       />
     </Wrapper>
   )
@@ -35,17 +34,13 @@ const Home = ({ projects, createProject }) => {
 
 const mapStateToProps = state => {
   return {
-    projects: state.fireStore.ordered.projects,
-    isLoggedIn: state.auth.isLoggedIn
+    uid: state.fireBase.auth.uid
   }
 }
 
-export default compose(
-  connect(
-    mapStateToProps,
-    { createProject }
-  ),
-  firestoreConnect([{ collection: 'projects' }])
+export default connect(
+  mapStateToProps,
+  { createProject }
 )(Home)
 
 const Wrapper = Style.div`

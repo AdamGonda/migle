@@ -2,66 +2,58 @@ import React from 'react'
 import Style from 'styled-components'
 import Item from './Item'
 import AddNewIcon from './assets/add new board icon.svg'
+import { firestoreConnect } from 'react-redux-firebase'
+import { connect } from 'react-redux'
+import { compose } from 'redux'
 
-const Module = ({ name, icon, items, moduleAction, isEmpty, match }) => {
-  const itemsOrLoading = () => {
-    return items ? (
-      items.map((item, idx) => (
-        <Item
-          key={item.id}
-          id={item.id}
-          type={item.type}
-          name={item.name}
-          animationDelay={idx}
-        />
-      ))
-    ) : (
-      <LodingIndicator>
-        <div />
-      </LodingIndicator>
-    )
-  }
-
-  const showActionBtnConditionaly = () => {
-    return !moduleAction ? null : (
-      <img
-        style={{ cursor: 'pointer' }}
-        alt="add new"
-        src={AddNewIcon}
-        onClick={moduleAction}
-      />
-    )
-  }
-
-  const isParentsItems = () => !isEmpty(items) && items[0].parent == match.params.id
-
-  const showItems = () => {
-    if (isEmpty && match) {
-      if (isParentsItems()) {
-        return <>{itemsOrLoading()}</>
-      }
-    } else {
-      return (
-        <>
-          {itemsOrLoading()}
-          {showActionBtnConditionaly()}
-        </>
-      )
-    }
-  }
-
-  return (
+const Module = ({ name, icon, items, ownerIdForFetch, fetchFrom, moduleAction, filterFn }) => {
+    return (
     <Wrapper>
       <Title>
         {icon}
         <p>{name}</p>
       </Title>
-      <Body>{showItems()}</Body>
+      <Body>
+        {items &&
+        items.filter((item) => filterFn ? filterFn(item) : true )
+        .map((item, idx) => {
+            return (
+              <Item
+                key={item.id + idx}
+                id={item.id}
+                type={item.type}
+                name={item.name}
+                navigateTo={item.type}
+                animationDelay={idx}
+              />
+            )
+          })}
+      </Body>
     </Wrapper>
   )
 }
 
-export default Module
+const mapStateToProps = (state, ownState) => {
+  return {
+    items: state.fireStore.ordered[ownState.fetchFrom],
+    uid: state.fireBase.auth.uid,
+  }
+}
+
+export default compose(
+  connect(
+    mapStateToProps,
+    null
+  ),
+  firestoreConnect(props => {
+    return [
+      {
+        collection: props.fetchFrom,
+        where: ['owner', '==', props.ownerIdForFetch]
+      }
+    ]
+  })
+)(Module)
 
 const Wrapper = Style.div`
   margin-bottom: 52px;
