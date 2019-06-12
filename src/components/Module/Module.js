@@ -9,8 +9,6 @@ const Module = ({
   name,
   icon,
   items,
-  ownerIdForFetch,
-  fetchFrom,
   moduleAction,
   showItem,
   filterFn,
