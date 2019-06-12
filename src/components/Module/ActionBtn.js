@@ -11,34 +11,42 @@ const ActionBtn = ({ action }) => {
   const emptyNameErrorMsg = 'required'
 
   const showActionBtn = () => {
-    return <Panel><MainBtn src={AddNewIcon} onClick={() => setIsOpend(true)} /></Panel>
+    return (
+      <Panel>
+        <MainBtn src={AddNewIcon} onClick={() => setIsOpend(true)} />
+      </Panel>
+    )
   }
 
   const showInput = () => {
     return (
       <Panel>
-        
-          <Input placeholder={emptyNameError ? emptyNameErrorMsg : 'name'} onChange={e => {
+        <Input
+          placeholder={emptyNameError ? emptyNameErrorMsg : 'name'}
+          onChange={e => {
             setEmptyNameError(false)
             setName(e.target.value)
-          }} />
-          <div>
-            <SubmitBtn
-              src={SubmitIcon}
-              onClick={() => {
-                if(!name == ''){
-                  action(name)
-                  setIsOpend(false)
-                }
-                setEmptyNameError(true)
-              }}
-            />
-            <CancelBtn src={CloseIcon} onClick={() => {
+          }}
+        />
+        <div>
+          <SubmitBtn
+            src={SubmitIcon}
+            onClick={() => {
+              if (!name == '') {
+                action(name)
+                setIsOpend(false)
+              }
+              setEmptyNameError(true)
+            }}
+          />
+          <CancelBtn
+            src={CloseIcon}
+            onClick={() => {
               setIsOpend(false)
               setEmptyNameError(false)
-              }} />
-          </div>
-          
+            }}
+          />
+        </div>
       </Panel>
     )
   }

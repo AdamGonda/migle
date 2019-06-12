@@ -1,6 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { createPersonalProject, createTeamProject } from '../../redux/actions/project'
+import {
+  createPersonalProject,
+  createTeamProject
+} from '../../redux/actions/project'
 import Style from 'styled-components'
 import Module from '../Module/Module'
 import OutliedStarIcon from './assets/outlined star icon.svg'
@@ -37,7 +40,7 @@ const Home = ({ createPersonalProject, createTeamProject, uid }) => {
         ownerIdForFetch={uid}
         moduleAction={(fireStoreFireBase, name) => {
           const { fireStore, fireBase } = fireStoreFireBase
-          createPersonalProject({name, owner: fireBase.auth.uid})
+          createPersonalProject({ name, owner: fireBase.auth.uid })
         }}
         showItem={(item, idx) => {
           return (
@@ -61,9 +64,9 @@ const Home = ({ createPersonalProject, createTeamProject, uid }) => {
         moduleAction={(fireStoreFireBase, name) => {
           const { fireStore, fireBase } = fireStoreFireBase
           const userMembershipId = fireStore.ordered.memberships[0].id
-          createTeamProject({name, owner: userMembershipId})
+          createTeamProject({ name, owner: userMembershipId })
         }}
-        showItem={(item, idx) =>         
+        showItem={(item, idx) =>
           item.memberships.map((item, idx) => (
             <Item
               key={item.id + idx}
@@ -90,7 +93,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     createPersonalProject: project => dispatch(createPersonalProject(project)),
-    createTeamProject: project => dispatch(createTeamProject(project)),
+    createTeamProject: project => dispatch(createTeamProject(project))
   }
 }
 

@@ -26,16 +26,19 @@ export const createTeamProject = project => {
         name: project.name,
         type: 'team-project'
       })
-      .then((resp) => {
+      .then(resp => {
         firestore
-        .collection('memberships')
-        .doc(project.owner)
-        .update({
-          memberships: firebase.firestore.FieldValue.arrayUnion({name: project.name, id: resp.id, type: 'team-project'}),
-        })
-
+          .collection('memberships')
+          .doc(project.owner)
+          .update({
+            memberships: firebase.firestore.FieldValue.arrayUnion({
+              name: project.name,
+              id: resp.id,
+              type: 'team-project'
+            })
+          })
       })
       .then(() => console.log('team project created and membership is created'))
-      .catch((err) => console.log(err))
+      .catch(err => console.log(err))
   }
 }

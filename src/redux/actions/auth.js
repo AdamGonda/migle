@@ -6,8 +6,8 @@ export const signIn = credentials => (dispatch, getState, { getFirebase }) => {
   fireBase
     .auth()
     .signInWithEmailAndPassword(credentials.email, credentials.password)
-    .then(() => dispatch({type: AUTH_SUCCESS}))
-    .catch(err => dispatch({type: AUTH_ERROR, payload: err}))
+    .then(() => dispatch({ type: AUTH_SUCCESS }))
+    .catch(err => dispatch({ type: AUTH_ERROR, payload: err }))
 }
 
 export const signUp = newUser => (
@@ -29,6 +29,6 @@ export const signUp = newUser => (
           lastName: newUser.lastName
         })
     })
-    .then(() => dispatch({type: AUTH_SUCCESS}))
-    .catch(err => dispatch({type: AUTH_ERROR, payload: err}))
+    .then(() => dispatch({ type: AUTH_SUCCESS }))
+    .catch(err => dispatch({ type: AUTH_ERROR, payload: err }))
 }
