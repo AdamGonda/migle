@@ -1,9 +1,9 @@
 import React from 'react'
 import Style from 'styled-components'
-import AddNewIcon from './assets/add new board icon.svg'
 import { firestoreConnect } from 'react-redux-firebase'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
+import ActionBtn from './ActionBtn'
 
 const Module = ({
   name,
@@ -27,7 +27,7 @@ const Module = ({
           items
             .filter(item => (filterFn ? filterFn(item) : true))
             .map((item, idx) => showItem(item, idx))}
-        {moduleAction && <ActionBtn src={AddNewIcon} onClick={() => moduleAction(fireStoreFireBase)} />}
+        {moduleAction && <ActionBtn action={name => moduleAction(fireStoreFireBase, name)}/>}
       </Body>
     </Wrapper>
   )
@@ -110,11 +110,5 @@ const LodingIndicator = Style.span`
     width: 30px;
     height: 30px;
     animation: donut-spin 2s linear infinite;
-  }
-`
-
-const ActionBtn = Style.img`
-  :hover {
-    cursor: pointer;
   }
 `

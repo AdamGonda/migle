@@ -35,9 +35,9 @@ const Home = ({ createPersonalProject, createTeamProject, uid }) => {
         name={'Personal projects'}
         fetchFrom={'personalProjects'}
         ownerIdForFetch={uid}
-        moduleAction={fireStoreFireBase => {
+        moduleAction={(fireStoreFireBase, name) => {
           const { fireStore, fireBase } = fireStoreFireBase
-          createPersonalProject({name: "hello new personal project", owner: fireBase.auth.uid})
+          createPersonalProject({name, owner: fireBase.auth.uid})
         }}
         showItem={(item, idx) => {
           return (
@@ -58,10 +58,10 @@ const Home = ({ createPersonalProject, createTeamProject, uid }) => {
         name={'Team projects'}
         fetchFrom={'memberships'}
         ownerIdForFetch={uid}
-        moduleAction={fireStoreFireBase => {
+        moduleAction={(fireStoreFireBase, name) => {
           const { fireStore, fireBase } = fireStoreFireBase
           const userMembershipId = fireStore.ordered.memberships[0].id
-          createTeamProject({name: "hello new team project", owner: userMembershipId})
+          createTeamProject({name, owner: userMembershipId})
         }}
         showItem={(item, idx) =>         
           item.memberships.map((item, idx) => (
