@@ -5,7 +5,7 @@ import Style from 'styled-components'
 import HomeIcon from './assets/home icon.svg'
 import { navigateTo, NAVBAR } from '../../redux/actions/locations'
 
-const PathNavigator = ({ history, locations, navigateTo }) => {
+const PathNavigator = ({ history, locations, navigateTo, location: routerLocation }) => {
   const displayLinks = (location, idx) => {
     if (idx === 0) {
       return (
@@ -14,7 +14,7 @@ const PathNavigator = ({ history, locations, navigateTo }) => {
           alt="Home"
           src={HomeIcon}
           onClick={() => {
-            navigateTo(location, NAVBAR, { idx, history })
+            navigateTo(location, NAVBAR, { idx, history, from: location })
           }}
         />
       )
@@ -23,7 +23,7 @@ const PathNavigator = ({ history, locations, navigateTo }) => {
         <React.Fragment key={idx}>
           <div
             onClick={() => {
-              navigateTo(location, NAVBAR, { idx: idx + 1, history })
+              navigateTo(location, NAVBAR, { idx: idx + 1, history, from: location })
             }}
           >
             {location.name}

@@ -7,11 +7,13 @@ export const locations = (state = initState, action) => {
     case action.type.includes(NAVIGATE_TO):
       if (action.type.includes(NAVBAR)) {
         return state.filter((location, idx) => {
+          console.log(action);
+          
           if (idx === 0) {
-            changeLocationUsingReactRouterHistory(action, calcPath(action))
+            action.payload.history.push(calcPath(action))
             return idx <= action.payload.idx
           } else {
-            changeLocationUsingReactRouterHistory(action, calcPath(action))
+            action.payload.history.push(calcPath(action))
             return idx < action.payload.idx
           }
         })
@@ -31,11 +33,9 @@ const calcPath = action => {
     return '/'
   } else if (location.type === 'personal-project') {
     return `/${location.type}/${location.id}`
-  }else if (location.type === 'team-project') {
+  } else if (location.type === 'team-project') {
     return `/${location.type}/${location.id}`
-  }  else if (location.type === 'sprint') {
+  } else if (location.type === 'sprint') {
     return `/project/${location.type}/${location.id}`
   }
 }
-const changeLocationUsingReactRouterHistory = (action, type) =>
-  action.payload.history.push(type)

@@ -8,7 +8,8 @@ export const navigateTo = (to, using, options) => ({
   payload: {
     to,
     history: options.history,
-    idx: options.idx
+    idx: options.idx,
+    from: options.from
   }
 })
 
