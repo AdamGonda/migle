@@ -6,12 +6,11 @@ export const locations = (state = initState, action) => {
   switch (true) {
     case action.type.includes(NAVIGATE_TO):
       if (action.type.includes(NAVBAR)) {
+        pushLocationToHistory(action)
         return state.filter((location, idx) => {
           if (idx === 0) {
-            action.payload.history.push(calcPath(action))
             return idx <= action.payload.idx
           } else {
-            action.payload.history.push(calcPath(action))
             return idx < action.payload.idx
           }
         })
@@ -24,16 +23,19 @@ export const locations = (state = initState, action) => {
   }
 }
 
-const calcPath = action => {
+const pushLocationToHistory = action => {
   const location = action.payload.to
+  let pathToPush = ''
 
   if (location.type === '') {
-    return '/'
+    pathToPush = '/'
   } else if (location.type === 'personal-project') {
-    return `/${location.type}/${location.id}`
+    pathToPush = `/${location.type}/${location.id}`
   } else if (location.type === 'team-project') {
-    return `/${location.type}/${location.id}`
-  } else if (location.type === 'sprint') {
-    return `/project/${location.type}/${location.id}`
+    pathToPush = `/${location.type}/${location.id}`
+  }else if(location.type == 'sprint'){
+    return
   }
+
+  action.payload.history.push(pathToPush)
 }
