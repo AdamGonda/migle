@@ -29,7 +29,9 @@ const calcPath = action => {
 
   if (location.type === '') {
     return '/'
-  } else if (location.type === 'project') {
+  } else if (location.type === 'personal-project') {
+    return `/${location.type}/${location.id}`
+  }else if (location.type === 'team-project') {
     return `/${location.type}/${location.id}`
   }  else if (location.type === 'sprint') {
     return `/project/${location.type}/${location.id}`
