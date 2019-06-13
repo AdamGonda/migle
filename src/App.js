@@ -20,12 +20,7 @@ const App = ({ isLoggedIn, firebaseAuthIsLoaded }) => {
             <Route exact path={'/team-project/:id'} component={TeamProject} />
             <Route
               exact
-              path={'/personal-project/sprint/:id'}
-              component={Sprint}
-            />
-            <Route
-              exact
-              path={'/team-project/sprint/:id'}
+              path={'/:path(personal-project|team-project)/sprint/:id'}
               component={Sprint}
             />
           </Switch>
