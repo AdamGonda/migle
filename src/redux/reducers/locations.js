@@ -7,8 +7,6 @@ export const locations = (state = initState, action) => {
     case action.type.includes(NAVIGATE_TO):
       if (action.type.includes(NAVBAR)) {
         return state.filter((location, idx) => {
-          console.log(action);
-          
           if (idx === 0) {
             action.payload.history.push(calcPath(action))
             return idx <= action.payload.idx
