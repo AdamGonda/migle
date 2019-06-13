@@ -6,7 +6,15 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { navigateTo, LINK } from '../../redux/actions/locations'
 
-const Item = ({ id, type, name, navigateTo, animationDelay }) => {  
+const Item = ({
+  id,
+  type,
+  name,
+  navigateTo,
+  businessValue,
+  showStar,
+  animationDelay
+}) => {
   return (
     <Wrapper animationDelay={animationDelay}>
       <span>...</span>
@@ -22,11 +30,15 @@ const Item = ({ id, type, name, navigateTo, animationDelay }) => {
 
       <Bottom>
         <Info>
-          <img alt="Star" src={BvIcon} />
-          <p>8200</p>
+          {businessValue && (
+            <>
+              <img alt="Star" src={BvIcon} />
+              <p>{businessValue}</p>
+            </>
+          )}
         </Info>
 
-        <img alt="Star" src={FullStarIcon} />
+        {showStar && <img alt="Star" src={FullStarIcon} />}
       </Bottom>
     </Wrapper>
   )
@@ -48,7 +60,7 @@ const Wrapper = Style.div`
   font-weight: 500;
   text-align: left;
 
-  animation: showUp ${props => 0.5 + (props.animationDelay * 0.5)}s;
+  animation: showUp ${props => 0.5 + props.animationDelay * 0.5}s;
 
   @keyframes showUp {
     0% {

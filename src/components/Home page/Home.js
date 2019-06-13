@@ -1,33 +1,84 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { compose } from 'redux'
-import { createProject } from '../../redux/actions/project'
-import { firestoreConnect } from 'react-redux-firebase'
+import {
+  createPersonalProject,
+  createTeamProject
+} from '../../redux/actions/project'
 import Style from 'styled-components'
 import Module from '../Module/Module'
 import OutliedStarIcon from './assets/outlined star icon.svg'
+import Item from '../Module/Item'
 import PersonIcon from './assets/person icon.svg'
 import TeamIcon from './assets/team icon.svg'
 
-const Home = ({ projects, createProject }) => {
+const Home = ({ createPersonalProject, createTeamProject, uid }) => {
   return (
     <Wrapper>
       <Module
         icon={<img alt="star" src={OutliedStarIcon} />}
         name={'Starred projects'}
-        items={projects}
+        fetchFrom={'starredProjects'}
+        ownerIdForFetch={uid}
+        showItem={(item, idx) => {
+          return (
+            <Item
+              key={item.id + idx}
+              id={item.id}
+              type={item.type}
+              name={item.name}
+              navigateTo={item.type}
+              animationDelay={idx}
+              showStar={true}
+            />
+          )
+        }}
       />
       <Module
         icon={<img alt="star" src={PersonIcon} />}
         name={'Personal projects'}
-        // items={projects}
-        // moduleAction={createProject}
+        fetchFrom={'personalProjects'}
+        ownerIdForFetch={uid}
+        moduleAction={(fireStoreFireBase, name) => {
+          const { fireBase } = fireStoreFireBase
+          createPersonalProject({ name, owner: fireBase.auth.uid })
+        }}
+        showItem={(item, idx) => {
+          return (
+            <Item
+              key={item.id + idx}
+              id={item.id}
+              type={item.type}
+              name={item.name}
+              navigateTo={item.type}
+              animationDelay={idx}
+              showStar={false}
+            />
+          )
+        }}
       />
       <Module
-        icon={<img alt="star" src={TeamIcon} style={{ width: '25px' }} />}
+        icon={<img alt="star" src={TeamIcon} />}
         name={'Team projects'}
-        // items={projects}
-        // moduleAction={createProject}
+        fetchFrom={'memberships'}
+        ownerIdForFetch={uid}
+        moduleAction={(fireStoreFireBase, name) => {
+          const { fireStore } = fireStoreFireBase
+          const userMembershipId = fireStore.ordered.memberships[0].id
+          createTeamProject({ name, owner: userMembershipId })
+        }}
+        showItem={(item, idx) =>
+          item.memberships.map((item, idx) => (
+            <Item
+              key={item.id + idx}
+              id={item.id}
+              type={item.type}
+              name={item.name}
+              navigateTo={item.type}
+              animationDelay={idx}
+              showStar={false}
+            />
+          ))
+        }
       />
     </Wrapper>
   )
@@ -35,17 +86,20 @@ const Home = ({ projects, createProject }) => {
 
 const mapStateToProps = state => {
   return {
-    projects: state.fireStore.ordered.projects,
-    isLoggedIn: state.auth.isLoggedIn
+    uid: state.fireBase.auth.uid
   }
 }
 
-export default compose(
-  connect(
-    mapStateToProps,
-    { createProject }
-  ),
-  firestoreConnect([{ collection: 'projects' }])
+const mapDispatchToProps = dispatch => {
+  return {
+    createPersonalProject: project => dispatch(createPersonalProject(project)),
+    createTeamProject: project => dispatch(createTeamProject(project))
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(Home)
 
 const Wrapper = Style.div`

@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Navbar from './components/Navbar/Navbar'
 import Home from './components/Home page/Home'
-import Project from './components/Project page/Project'
 import Sprint from './components/Sprint page/Sprint'
 import Landing from './components/Landing Page/Landing'
+import PersonalProject from './components/Project page/PersonalProject';
+import TeamProject from './components/Project page/TeamProject';
 
 const App = ({ isLoggedIn, firebaseAuthIsLoaded }) => {
   return (
@@ -15,10 +16,11 @@ const App = ({ isLoggedIn, firebaseAuthIsLoaded }) => {
           <Navbar />
           <Switch>
             <Route exact path={'/'} component={Home} />
-            <Route exact path={'/project/:id'} component={Project} />
+            <Route exact path={'/personal-project/:id'} component={PersonalProject} />
+            <Route exact path={'/team-project/:id'} component={TeamProject} />
             <Route
               exact
-              path={'/project/sprint/:id'}
+              path={'/:path(personal-project|team-project)/sprint/:id'}
               component={Sprint}
             />
           </Switch>
