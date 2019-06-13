@@ -10,7 +10,6 @@ import Item from '../Module/Item'
 const TeamProject = ({ uid, match }) => {
   return (
     <Wrapper>
-      <h1>Team project</h1>
       <Module
         icon={<img alt="star" src={OutliedStarIcon} />}
         name={'Starred sprints'}
