@@ -1,6 +1,6 @@
 export const createSprint = sprint => {
-  console.log(sprint);
-  
+  console.log(sprint)
+
   return (dispatch, getState, { getFireBase, getFirestore }) => {
     const firestore = getFirestore()
     firestore
@@ -8,11 +8,23 @@ export const createSprint = sprint => {
       .add({
         name: sprint.name,
         owner: sprint.owner,
-        tasksLeft: 0,
-        totalNumberOfTasks: 0,
-        type: 'sprint',
+        tasksLeft: sprint.stories.length,
+        totalNumberOfTasks: sprint.stories.length,
+        type: 'sprint'
       })
-      .then(() => console.log('sprint created'))
-      .catch(() => console.log('error happend'))
+      .then(resp => {
+        console.log(resp)
+        sprint.stories.map(story => {
+          firestore.collection('stories').add({ 
+            parent: resp.id,
+            description: story.description,
+            estimation: story.estimation,
+            businessValue: story.businessValue,
+            status: "New",
+            type: 'story'
+          })
+        })
+      })
+      .catch(err => console.log(err))
   }
 }
