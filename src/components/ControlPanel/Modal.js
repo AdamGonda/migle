@@ -1,38 +1,26 @@
 import React from 'react'
 import Style from 'styled-components'
-import NewSprintForm from './NewSprintForm'
 import { createSprint } from '../../redux/actions/sprint'
 import { connect } from 'react-redux'
-import StoryPreview from './StoryPreview'
-import Header from './Header'
-
+import NewSprintForm from '../NewSprintForm/NewSprintForm'
 
 const SprintModal = ({ createSprint, match, closeModal }) => {
-  
+  const [showNewSprintForm, setShowNewSprintForm] = React.useState(true)
+
   return (
     <Wrapper>
-      <Header closeModal={closeModal}/>
-      <Body>
-        <p>Total stories: {4}</p>
-        <Stories>
-          <StoryPreview businessValue={20} estimation={4} description={'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an u Lorem Ipsum has been the industrys standard dummy te'} />
-          <StoryPreview businessValue={20} estimation={4} description={'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an u Lorem Ipsum has been the industrys standard dummy te'} />
-          <StoryPreview businessValue={20} estimation={4} description={'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an u Lorem Ipsum has been the industrys standard dummy te'} />
-          <StoryPreview businessValue={20} estimation={4} description={'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an u Lorem Ipsum has been the industrys standard dummy te'} />
-          <StoryPreview businessValue={20} estimation={4} description={'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an u Lorem Ipsum has been the industrys standard dummy te'} />
-          <StoryPreview businessValue={20} estimation={4} description={'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an u Lorem Ipsum has been the industrys standard dummy te'} />
-          <StoryPreview businessValue={20} estimation={4} description={'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an u Lorem Ipsum has been the industrys standard dummy te'} />
-          <StoryPreview businessValue={20} estimation={4} description={'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an u Lorem Ipsum has been the industrys standard dummy te'} />
-          <StoryPreview businessValue={20} estimation={4} description={'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an u Lorem Ipsum has been the industrys standard dummy te'} />
-        </Stories>
-        <button>Create sprint</button>
-      </Body>
+      {showNewSprintForm ? (
+        <NewSprintForm
+          createSprint={createSprint}
+          match={match}
+          closeModal={closeModal}
+          showNewStoryForm={() => setShowNewSprintForm(false)}
+        />
+      ) : (
+        <p>add new story</p>
+      )}
     </Wrapper>
   )
-}
-
-const mapStateToPops = state => {
-  return {}
 }
 
 const mapDispatchToPorps = dispatch => {
@@ -43,51 +31,13 @@ const mapDispatchToPorps = dispatch => {
 }
 
 export default connect(
-  mapStateToPops,
+  null,
   mapDispatchToPorps
 )(SprintModal)
 
-const Body = Style.div`
- display: grid;
- height: 100%;
- width: 85%;
- grid-template-rows: 0.2fr 280px; 0.6fr;
- 
-
- p {
-   margin: 0;
-   font-size: 23px;
-   font-weight: 500;
- }
-
- button {
-  align-self: start;
-  justify-self: center;
-  font-size: 18px;
-  background: rgba(0,0,0,0);
-  border: 1.5px solid white;
-  color: white;
-  padding: 7px 29px;
-  margin-top: 95px;
-
-  :hover {
-    cursor: pointer;
-  }
- }
-`
-
-const Stories = Style.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 40px;
-  grid-row-gap: 20px;
-  overflow: scroll;
-  margin-top: 20px
-  height: 320px;
-`
-
 const Wrapper = Style.div`
   display: grid; 
+  grid-template-rows: 300px 1fr;
   place-items: center;
   position: fixed;
   top: 0;

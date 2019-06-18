@@ -1,16 +1,19 @@
 import React from 'react'
 import Style from 'styled-components'
-import Modal from './Modal';
+import Modal from './Modal'
 
 const ControlPanel = ({ match }) => {
-
   const [showModal, setShowModal] = React.useState(true)
 
   return (
     <Wrapper>
       <Controll>
-        <NewSprintBtn onClick={() => setShowModal(true)}>Create new sprint</NewSprintBtn>
-        {showModal ? <Modal match={match} closeModal={() => setShowModal(false)}/> : null}
+        <NewSprintBtn onClick={() => setShowModal(true)}>
+          Create new sprint
+        </NewSprintBtn>
+        {showModal ? (
+          <Modal match={match} closeModal={() => setShowModal(false)} />
+        ) : null}
       </Controll>
       <Messages>Message board</Messages>
     </Wrapper>
