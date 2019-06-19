@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Style from 'styled-components'
-import Task from './Story/Story'
+import Story from './Story/Story'
 import SprintDetails from './SprintDetails/SprintDetails'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
@@ -10,9 +10,9 @@ const Sprint = ({ stories }) => {
   return (
     <Wrapper>
       <Left>
-        {stories && stories.map(story => {
+        {stories && stories.map(story => {  
           return (
-            <Task
+            <Story
               key={story.id}
               //id={story.id}
               //dependencies={story.dependencies}
@@ -20,6 +20,7 @@ const Sprint = ({ stories }) => {
               estimation={story.estimation}
               responsible={story.responsible}
               status={story.status}
+              businessValue={story.businessValue}
             />
           )
         })}
