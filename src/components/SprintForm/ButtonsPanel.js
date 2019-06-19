@@ -47,7 +47,12 @@ export default ({ createSprint, closeModal, formState, formStateDispatch }) => {
               onClick={() => {
                 if (formState.storyDescription.length > 15) {
                   formStateDispatch({
-                    type: ADD_STORY
+                    type: ADD_STORY,
+                    payload: {
+                      description: formState.storyDescription,
+                      businessValue: formState.businessValue,
+                      idForUsers: formState.stories.length + 1
+                    }
                   })
 
                   formStateDispatch({
@@ -57,7 +62,7 @@ export default ({ createSprint, closeModal, formState, formStateDispatch }) => {
 
                   formStateDispatch({
                     type: SET_BUSINESS_VALUE,
-                    payload: 0
+                    payload: 100
                   })
                 }
               }}

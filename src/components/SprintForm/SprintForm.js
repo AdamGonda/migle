@@ -68,9 +68,9 @@ const storiesReducer = (state, action) => {
         stories: [
           ...state.stories,
           {
-            description: state.storyDescription,
-            businessValue: state.businessValue,
-            idForUsers: state.stories.length + 1
+            description: action.payload.description,
+            businessValue: action.payload.businessValue,
+            idForUsers: action.payload.idForUsers
           }
         ]
       }

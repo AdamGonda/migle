@@ -2,10 +2,10 @@ import React from 'react'
 import { Wrapper, Stories } from './styles/Stories'
 import StoryPreview from './StoryPreview'
 
-export default ({ stories, isAddStory }) => {
+export default ({ stories, isStoriesForm }) => {
   return (
     <Wrapper>
-      {!isAddStory ? (
+      {!isStoriesForm ? (
         <p>Total stories: {stories.length}</p>
       ) : (
         <p>Could depend on:</p>
@@ -15,6 +15,7 @@ export default ({ stories, isAddStory }) => {
           stories.map((story, idx) => (
             <StoryPreview
               key={idx}
+              descriptionLimit={140}
               businessValue={story.businessValue}
               description={story.description}
               idForUsers={story.idForUsers}

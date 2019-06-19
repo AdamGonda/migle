@@ -7,11 +7,16 @@ import {
 } from './styles/StoryPreview'
 import BusinessValueIcon from './assets/businessValue.svg'
 
-const StoryPreview = ({ description, businessValue, idForUsers }) => {
+const StoryPreview = ({ descriptionLimit, description, businessValue, idForUsers }) => {
+  const truncate = description => {
+    if(description){
+      return description.length > descriptionLimit ? description.substring(0, descriptionLimit) + '...' : description
+    }
+  }
   return (
     <Wrapper>
       <JustId>{idForUsers}</JustId>
-      <Description>{description && description.substring(0, 150)}</Description>
+      <Description>{truncate(description)}</Description>
       <BusinessValue>
         <img src={BusinessValueIcon} />
         {businessValue}
