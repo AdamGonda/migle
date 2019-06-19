@@ -18,7 +18,6 @@ export const createSprint = sprint => {
           firestore.collection('stories').add({ 
             parent: resp.id,
             description: story.description,
-            estimation: story.estimation,
             businessValue: story.businessValue,
             status: "New",
             type: 'story'

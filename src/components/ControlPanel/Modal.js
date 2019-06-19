@@ -1,39 +1,16 @@
 import React from 'react'
 import Style from 'styled-components'
-import { createSprint } from '../../redux/actions/sprint'
-import { connect } from 'react-redux'
-import NewSprintForm from '../NewSprintForm/NewSprintForm'
+import SprintForm from '../SprintForm/SprintForm'
 
-const SprintModal = ({ createSprint, match, closeModal }) => {
-  const [showNewSprintForm, setShowNewSprintForm] = React.useState(true)
-
+const SprintModal = ({ match, closeModal }) => {
   return (
     <Wrapper>
-      {showNewSprintForm ? (
-        <NewSprintForm
-          createSprint={createSprint}
-          match={match}
-          closeModal={closeModal}
-          showNewStoryForm={() => setShowNewSprintForm(false)}
-        />
-      ) : (
-        <p>add new story</p>
-      )}
+      <SprintForm match={match} closeModal={closeModal} />
     </Wrapper>
   )
 }
 
-const mapDispatchToPorps = dispatch => {
-  return {
-    createSprint: (name, owner, stories) =>
-      dispatch(createSprint({ name, owner, stories }))
-  }
-}
-
-export default connect(
-  null,
-  mapDispatchToPorps
-)(SprintModal)
+export default SprintModal
 
 const Wrapper = Style.div`
   display: grid; 
@@ -47,15 +24,4 @@ const Wrapper = Style.div`
   background: rgba(0, 104, 178, 0.9);
   z-index: 1;
   color: white;
-  animation: showUp 0.2s ease-in;
-
-  @keyframes showUp {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
 `

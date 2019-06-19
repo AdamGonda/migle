@@ -3,7 +3,7 @@ import Style from 'styled-components'
 import Modal from './Modal'
 
 const ControlPanel = ({ match }) => {
-  const [showModal, setShowModal] = React.useState(true)
+  const [showModal, setShowModal] = React.useState(false)
 
   return (
     <Wrapper>

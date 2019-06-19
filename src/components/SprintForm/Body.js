@@ -2,17 +2,21 @@ import React from 'react'
 import Style from 'styled-components'
 import StoryPreview from './StoryPreview'
 
-const Body = ({ stories }) => {
+const Body = ({ stories, isStoriesForm }) => {
   return (
     <Wrapper>
-      <p>Total stories: {stories.length}</p>
+      {!isStoriesForm ? (
+        <p>Total stories: {stories.length}</p>
+      ) : (
+        <p>Could depend on:</p>
+      )}
       <Stories>
         {stories &&
           stories.map(story => (
             <StoryPreview
               businessValue={story.businessValue}
-              estimation={story.estimation}
               description={story.description}
+              idForUsers={story.idForUsers}
             />
           ))}
       </Stories>
