@@ -15,7 +15,7 @@ const Home = ({ createPersonalProject, createTeamProject, uid }) => {
   return (
     <Wrapper>
       <Module
-        icon={<img alt="star" src={OutliedStarIcon} />}
+        icon={<img alt="star" src={OutliedStarIcon} style={{width: 23}}/>}
         name={'Starred projects'}
         fetchFrom={'starredProjects'}
         ownerIdForFetch={uid}
@@ -34,7 +34,7 @@ const Home = ({ createPersonalProject, createTeamProject, uid }) => {
         }}
       />
       <Module
-        icon={<img alt="star" src={PersonIcon} />}
+        icon={<img alt="star" src={PersonIcon} style={{width: 18, marginBottom: -2}}/>}
         name={'Personal projects'}
         fetchFrom={'personalProjects'}
         ownerIdForFetch={uid}
@@ -57,7 +57,7 @@ const Home = ({ createPersonalProject, createTeamProject, uid }) => {
         }}
       />
       <Module
-        icon={<img alt="star" src={TeamIcon} />}
+        icon={<img alt="star" src={TeamIcon} style={{width: 30, marginBottom: -1}}/>}
         name={'Team projects'}
         fetchFrom={'memberships'}
         ownerIdForFetch={uid}

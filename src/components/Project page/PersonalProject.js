@@ -13,7 +13,7 @@ const PersonalProject = ({ uid, match }) => {
     <Wrapper>
       <Sprints>
         <Module
-          icon={<img alt="star" src={OutliedStarIcon} />}
+          icon={<img alt="star" src={OutliedStarIcon} style={{width: 23}}/>}
           name={'Starred sprints'}
           fetchFrom={'starredSprints'}
           ownerIdForFetch={uid}
@@ -37,7 +37,7 @@ const PersonalProject = ({ uid, match }) => {
         />
 
         <Module
-          icon={<img alt="star" src={OngoingIcon} />}
+          icon={<img alt="star" src={OngoingIcon} style={{width: 25, marginBottom: -2}}/>}
           name={'Ongoin sprints'}
           fetchFrom={'sprints'}
           filterFn={item => item.tasksLeft > 0}
@@ -56,7 +56,7 @@ const PersonalProject = ({ uid, match }) => {
         />
 
         <Module
-          icon={<img alt="star" src={DoneIcon} />}
+          icon={<img alt="star" src={DoneIcon} style={{width: 25, marginBottom: -2}}/>}
           name={'Done sprints'}
           fetchFrom={'sprints'}
           filterFn={item => item.tasksLeft == 0}
