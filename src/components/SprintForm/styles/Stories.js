@@ -1,32 +1,6 @@
-import React from 'react'
 import Style from 'styled-components'
-import StoryPreview from './StoryPreview'
 
-const Body = ({ stories, isStoriesForm }) => {
-  return (
-    <Wrapper>
-      {!isStoriesForm ? (
-        <p>Total stories: {stories.length}</p>
-      ) : (
-        <p>Could depend on:</p>
-      )}
-      <Stories>
-        {stories &&
-          stories.map(story => (
-            <StoryPreview
-              businessValue={story.businessValue}
-              description={story.description}
-              idForUsers={story.idForUsers}
-            />
-          ))}
-      </Stories>
-    </Wrapper>
-  )
-}
-
-export default Body
-
-const Wrapper = Style.div`
+export const Wrapper = Style.div`
  display: grid;
  height: 100%;
  width: 85%;
@@ -56,7 +30,7 @@ const Wrapper = Style.div`
  }
 `
 
-const Stories = Style.div`
+export const Stories = Style.div`
   display: grid;
   align-content: start;	
   grid-template-columns: repeat(2, 1fr);
