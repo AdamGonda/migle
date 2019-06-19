@@ -3,13 +3,15 @@ import { Wrapper, Stories } from './styles/Stories'
 import StoryPreview from './StoryPreview'
 
 export default ({ stories, isStoriesForm }) => {
+  const showExplanatoryCaption = () =>
+    !isStoriesForm ? (
+      <p>Total stories: {stories.length}</p>
+    ) : (
+      <p>Could depend on:</p>
+    )
   return (
     <Wrapper>
-      {!isStoriesForm ? (
-        <p>Total stories: {stories.length}</p>
-      ) : (
-        <p>Could depend on:</p>
-      )}
+      {stories && stories.length > 0 ? showExplanatoryCaption() : null}
       <Stories>
         {stories &&
           stories.map((story, idx) => (
