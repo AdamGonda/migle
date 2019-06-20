@@ -1,9 +1,10 @@
 import Style from 'styled-components'
 
 export const Wrapper = Style.div`
-display: flex;
-align-items: center;
-justify-content:space-between; 
+display: grid;
+grid-template-columns: 50px fit-content(800px) repeat(2, 1fr);
+column-gap: 40px;
+align-items: center; 
 background-color: #DFE1E6;
 border-radius: 25px;
 color: var(--dark-text-color);

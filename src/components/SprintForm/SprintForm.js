@@ -53,8 +53,8 @@ export const SET_STORY_DESCRIPTION = 'SET_STORY_DESCRIPTION'
 export const SET_BUSINESS_VALUE = 'SET_BUSINESS_VALUE'
 
 const initialState = {
-  stories: [],
-  isStoriesForm: false,
+  stories: [{idForUsers: 1, businessValue: 500, description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s` }],
+  isStoriesForm: true,
   sprintTitle: '',
   storyDescription: '',
   businessValue: 100
