@@ -17,7 +17,7 @@ export default () => {
 const Wrapper = Style.div`
   padding: 0px 0px 0px 0px;
   background-color: #0094FF;
-  height: 90px;
+  height: 5.8vw;
   color: white;
   font-size:44px;
   font-weight: 600;
