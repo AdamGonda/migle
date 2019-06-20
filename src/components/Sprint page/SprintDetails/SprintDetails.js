@@ -14,14 +14,14 @@ export default () => {
   ]
 
   return (
-    <Wrapper>
+    <div>
       <Header>
         <Bubble
           title={
             <img
               alt='completed'
               src={CompletedIcon}
-              style={{ width: '23px', margin: '0px 3.5px -1px -6px' }}
+              style={{ width: '1.3vw', margin: '0px 3.5px -1px -6px' }}
             />
           }
           number={'9/12'}
@@ -33,15 +33,14 @@ export default () => {
         <Week days={dummyDays} />
         <Chart ideal={[60, 50, 40, 0]} remaining={[55, 45, 35, 0]} />
       </Body>
-    </Wrapper>
+    </div>
   )
 }
 
-const Wrapper = Style.div``
-
 const Header = Style.div`
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
 `
 
 const Body = Style.div`

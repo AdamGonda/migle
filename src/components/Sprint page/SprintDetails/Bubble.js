@@ -13,17 +13,17 @@ export default ({ title, number }) => {
 const Wrapper = Style.div`
     background-color: #DFE1E6;
     border-radius: 30px;
-    font-size: 20px;
     padding: 10px 25px;
     display: inline-block;
+    text-align: center;
 `
 
 const Title = Style.span`
-    font-size: 20px;
+    font-size: 1.4vw;
     margin-right: 10px;
 `
 
 const Number = Style.span`
-    font-size: 25px;
+    font-size: 1.6vw;
     font-weight: 500;
 `
