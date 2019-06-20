@@ -15,6 +15,7 @@ const Landing = ({ signIn, signUp }) => {
   const LOGIN = 'LOGIN'
   const SIGN_UP = 'SIGN_UP'
   const LANDING = 'LANDING'
+  const AuthPanelTitles = {login: 'Login', signUp: 'Sign up!'}
 
   const switchViewTo = name => () => {
     switch (name) {
@@ -50,7 +51,7 @@ const Landing = ({ signIn, signUp }) => {
 
       {showLoginPanel && !showSignUpPanel ? (
         <AuthPanel
-          title={'Longin'}
+          title={AuthPanelTitles.login}
           inputItems={[
             {
               type: 'text',
@@ -70,7 +71,7 @@ const Landing = ({ signIn, signUp }) => {
 
       {showSignUpPanel && !showLoginPanel ? (
         <AuthPanel
-        title={'Sign up!'}
+        title={AuthPanelTitles.signUp}
         inputItems={[
           {
             type: 'text',
