@@ -25,11 +25,16 @@ const Wrapper = Style.div`
     font-weight: 500;
     display: flex;
     align-items: center;
+    
   
     
     span {
         font-size: 22px;
         margin-top: -10px;
         display: inline-block;  
+    }
+
+    p {
+      margin: 0px;
     }
 `
