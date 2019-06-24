@@ -1,6 +1,6 @@
 import React from 'react'
-import Style from 'styled-components'
 import { PrimaryBtn, SubTitleLikeBtn } from '../shared styles/buttons'
+import { Wrapper, AuthError } from './styles/AuthPanel'
 import { connect } from 'react-redux'
 
 const AuthPanel = ({
@@ -34,7 +34,7 @@ const AuthPanel = ({
             onChange={handleChange}
           />
         ))}
-        {<AuthError>{authError && authError.message}</AuthError>}
+        {authError && <AuthError>{authError.message}</AuthError>}
         <PrimaryBtn
           style={{ marginTop: '45px', width: '90px' }}
           onClick={dispatchAction(credentials)}
@@ -62,48 +62,3 @@ export default connect(
   mapStateToProps,
   null
 )(AuthPanel)
-
-const Wrapper = Style.div`
-  display: grid;
-  justify-items: center;
-  align-self: center;
-  font-size: 15px;
-  color: white;
-  animation: showUp 0.4s ease-in;
-
-  @keyframes showUp {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
-
-  div {
-    width: 200px ;
-    display: grid;
-    justify-items: center;
-    align-self: center;
-    grid-gap: 10px;
-  }
-
-  h1 {
-    font-size: 35px;
-  }
-
-  input {
-    display: block;
-    text-align: center;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 3px;
-  }
-`
-const AuthError = Style.div`
-  font-size: 13px;
-  color:yellow;
-  font-weight: 600;
-  text-align: center;
-`
