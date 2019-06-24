@@ -6,7 +6,6 @@ export default ({ signUpBtnAction, loginBtnAction }) => (
   <Wrapper>
     <PrimaryBtn  onClick={signUpBtnAction}>Sign up</PrimaryBtn >
     <Bottom>
-      <br />
       <span>
         or <SubTitleLikeBtn style={{padding: '8px 15px 10px 2px'}} onClick={loginBtnAction}>login</SubTitleLikeBtn>
       </span>
