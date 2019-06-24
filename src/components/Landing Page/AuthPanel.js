@@ -1,5 +1,6 @@
 import React from 'react'
 import Style from 'styled-components'
+import { PrimaryBtn, SubTitleLikeBtn } from '../shared styles/buttons'
 import { connect } from 'react-redux'
 
 const AuthPanel = ({
@@ -34,8 +35,18 @@ const AuthPanel = ({
           />
         ))}
         {<AuthError>{authError && authError.message}</AuthError>}
-        <Submit onClick={dispatchAction(credentials)}>Submit</Submit>
-        <BackBtn onClick={backToLandigPage}>Go back</BackBtn>
+        <PrimaryBtn
+          style={{ marginTop: '45px', width: '90px' }}
+          onClick={dispatchAction(credentials)}
+        >
+          Submit
+        </PrimaryBtn>
+        <SubTitleLikeBtn
+          style={{ fontSize: '12px', fontWeight: '200' }}
+          onClick={backToLandigPage}
+        >
+          Go back
+        </SubTitleLikeBtn>
       </div>
     </Wrapper>
   )
@@ -82,16 +93,12 @@ const Wrapper = Style.div`
     font-size: 35px;
   }
 
-  input, button {
+  input {
     display: block;
     text-align: center;
-  }
-
-  input {
     border: none;
     padding: 5px 10px;
     border-radius: 3px;
-    
   }
 `
 const AuthError = Style.div`
@@ -99,42 +106,4 @@ const AuthError = Style.div`
   color:yellow;
   font-weight: 600;
   text-align: center;
-`
-
-const Submit = Style.button`
-  margin-top: 45px;
-  font-size: 24px;
-  border: none;
-  background-color: white;
-  padding: 8px 15px 10px 15px;
-  border-radius: 3px;
-  color: #2D4D60;
-  font-size: 17px;
-  font-weight: 700;
-
-  :focus {
-    outline: none;
-  }
-
-  :hover {
-    cursor: pointer;
-  }
-`
-
-const BackBtn = Style.button`
-  font-size: 12px !important;
-  border: none;
-  background: rgba(0,0,0,0) !important;
-  color: white;
-  font-size: 25px;
-  font-weight: 200;
-
-  :focus {
-    outline: none;
-  }
-
-  :hover {
-    cursor: pointer;
-    text-decoration: underline;
-  }
 `

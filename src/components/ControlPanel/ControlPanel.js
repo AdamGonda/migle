@@ -1,4 +1,5 @@
 import React from 'react'
+import { PrimaryBtn } from '../shared styles/buttons'
 import Style from 'styled-components'
 import Modal from './Modal'
 
@@ -8,9 +9,12 @@ const ControlPanel = ({ match }) => {
   return (
     <Wrapper>
       <Controll>
-        <NewSprintBtn onClick={() => setShowModal(true)}>
+        <PrimaryBtn
+          style={{ width: '100%', height: '100%' }}
+          onClick={() => setShowModal(true)}
+        >
           Create new sprint
-        </NewSprintBtn>
+        </PrimaryBtn>
         {showModal ? (
           <Modal match={match} closeModal={() => setShowModal(false)} />
         ) : null}
@@ -26,22 +30,6 @@ const Wrapper = Style.div`
   grid-column: controll;
   display: grid;
   grid-template-rows: repeat(24, 1fr);
-`
-
-const NewSprintBtn = Style.button`
-  width: 100%
-  height: 100%
-  color: var(--dark-text-color);
-  background: var(--box-color);
-  font-size: 20px;
-  font-weight: 600;
-  border: none;
-  border-radius: 5px;
-
-  :hover {
-    background: white;
-    cursor: pointer;
-  }
 `
 
 const Controll = Style.div`

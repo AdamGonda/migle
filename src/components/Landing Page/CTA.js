@@ -1,13 +1,14 @@
 import React from 'react'
+import { PrimaryBtn, SubTitleLikeBtn } from '../shared styles/buttons'
 import Style from 'styled-components'
 
-export default ({signUpBtnAction, loginBtnAction}) => (
+export default ({ signUpBtnAction, loginBtnAction }) => (
   <Wrapper>
-    <SignUp onClick={signUpBtnAction}>Sign up</SignUp>
+    <PrimaryBtn  onClick={signUpBtnAction}>Sign up</PrimaryBtn >
     <Bottom>
       <br />
       <span>
-        or <Login onClick={loginBtnAction}>login</Login>
+        or <SubTitleLikeBtn style={{padding: '8px 15px 10px 2px'}} onClick={loginBtnAction}>login</SubTitleLikeBtn>
       </span>
     </Bottom>
   </Wrapper>
@@ -31,25 +32,6 @@ const Wrapper = Style.div`
   }
 `
 
-const SignUp = Style.button`
-  width: 110px;
-  font-size: 24px;
-  border: none;
-  background-color: white;
-  padding: 8px 10px 10px 10px;
-  border-radius: 3px;
-  color: #2D4D60;
-  font-size: 17px;
-  font-weight: 700;
-
-  :focus {
-    outline: none;
-  }
-
-  :hover {
-    cursor: pointer;
-  }
-`
 const Bottom = Style.div`
   padding-left: 10px;
   font-size: 13px;
@@ -62,25 +44,5 @@ const Bottom = Style.div`
     color: white;
     display: inline-block;
     margin: 0px auto;
-  }
-`
-
-const Login = Style.button`
-  width: auto;
-  font-size: 15px;
-  border: none;
-  background-color: rgba(0,0,0,0);
-  padding: 8px 15px 10px 2px;
-  border-radius: 5px;
-  color: white;
-  font-weight: 400;
-
-  :hover {
-    text-decoration: underline;
-    cursor: pointer;
-  }
-
-  :focus {
-    outline: none;
   }
 `
