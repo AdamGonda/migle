@@ -77,7 +77,7 @@ export default ({ createSprint, closeModal, formState, formStateDispatch }) => {
                 })
               }
             >
-              >
+              X
             </CancelStoyForm>
           </StoryBtns>
         </>

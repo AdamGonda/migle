@@ -26,10 +26,11 @@ export const CancelStoyForm = Style.button`
   display: flex;
   align-items: center;
   font-size: 18px;
+  font-weight: 500;
   background: rgba(0,0,0,0);
   border: 1.5px solid white;
   color: white;
-  padding: 0 15px;
+  padding: 0 12px;
 
   :hover {
     cursor: pointer;
@@ -58,6 +59,11 @@ export const CreateSprintBtn = Style.button`
 
   :hover {
     cursor: pointer;
+  }
+
+  :active {
+    color: var(--box-color);
+    background-color: var(--dark-text-color);
   }
 `
 
