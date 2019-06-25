@@ -7,9 +7,10 @@ import messageBtn from './assets/messages icon.svg'
 export default () => {
   return (
     <Wrapper>
-      <MessageBtn alt="message" src={messageBtn} />
+      {/* <MessageBtn alt="message" src={messageBtn} />
       <TeamBtn alt="team" src={teamBtn} />
-      <MainBtn alt="main" src={mainBtn} />
+      <MainBtn alt="main" src={mainBtn} /> */}
+      <p onClick={() => console.log('log out')} style={{fontSize: 18}} >Log out</p>
     </Wrapper>
   )
 }

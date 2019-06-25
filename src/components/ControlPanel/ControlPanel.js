@@ -20,7 +20,7 @@ const ControlPanel = ({ match }) => {
           <Modal match={match} closeModal={() => setShowModal(false)} />
         ) : null}
       </Controll>
-      <Messages>Message board</Messages>
+      {/* <Messages>Message board</Messages> */}
     </Wrapper>
   )
 }
