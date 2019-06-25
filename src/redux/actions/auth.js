@@ -32,3 +32,12 @@ export const signUp = newUser => (
     .then(() => dispatch({ type: AUTH_SUCCESS }))
     .catch(err => dispatch({ type: AUTH_ERROR, payload: err }))
 }
+
+export const signOutAction = () => (dispatch, getState, { getFirebase }) => {
+  const fireBase = getFirebase()
+  fireBase
+    .auth()
+    .signOut()
+    .then(() => console.log('signout sucsess!'))
+    .catch(() => console.log('signout error!'))
+}

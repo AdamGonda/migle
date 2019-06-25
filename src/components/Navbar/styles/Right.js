@@ -22,3 +22,12 @@ export const MainBtn = Style.img`
   width: 44px;
   margin-left: ${spaceBetween}px;
 `
+
+export const SignOutBtn = Style.p`
+  font-size: 18px;
+  font-weight: 500;
+
+  :hover {
+    cursor: pointer;
+  }
+`
