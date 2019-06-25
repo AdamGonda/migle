@@ -42,7 +42,7 @@ export default ({
         <PickUpStory><img src={PickUpStoryIcon} /></PickUpStory>
       )}
       <Description description={description} />
-      <Estimation>{estimation}</Estimation>
+      {/* <Estimation>{estimation}</Estimation> */}
       {responsible && (
         <Responsible>
           <img alt="responsible" src={responsible.img} />
@@ -50,7 +50,7 @@ export default ({
         </Responsible>
       )}
 
-      <BusinessValue style={{ marginRight: 20 }}>
+      <BusinessValue>
         <img src={BusinessValueIcon} />
         {businessValue}
       </BusinessValue>

@@ -1,5 +1,5 @@
 import React from 'react'
-import Style from 'styled-components'
+import { Wrapper, Sprints } from './styles/PersonalProject'
 import { connect } from 'react-redux'
 import Module from '../Module/Module'
 import OutliedStarIcon from './assets/outlined star icon.svg'
@@ -89,13 +89,3 @@ export default connect(
   mapStateToProps,
   null
 )(PersonalProject)
-
-const Wrapper = Style.div`
-  padding: 15px 60px;
-  display: grid;
-  grid-template: "sprints sprints sprints controll controll"
-`
-
-const Sprints = Style.div`
-  grid-column: sprints;
-`

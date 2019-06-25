@@ -1,9 +1,9 @@
 import React from 'react'
-import Style from 'styled-components'
 import Bubble from './Bubble'
 import CompletedIcon from './assets/completed icon.svg'
 import Week from './Week'
 import Chart from './Chart'
+import { Header, Body } from './styles/SprintDetails'
 
 export default () => {
   const dummyDays = [
@@ -14,14 +14,14 @@ export default () => {
   ]
 
   return (
-    <Wrapper>
+    <div>
       <Header>
         <Bubble
           title={
             <img
               alt='completed'
               src={CompletedIcon}
-              style={{ width: '23px', margin: '0px 3.5px -1px -6px' }}
+              style={{ width: '1.3vw', margin: '0px 3.5px -1px -6px' }}
             />
           }
           number={'9/12'}
@@ -33,17 +33,6 @@ export default () => {
         <Week days={dummyDays} />
         <Chart ideal={[60, 50, 40, 0]} remaining={[55, 45, 35, 0]} />
       </Body>
-    </Wrapper>
+    </div>
   )
 }
-
-const Wrapper = Style.div``
-
-const Header = Style.div`
-    display: flex;
-    justify-content: space-between;
-`
-
-const Body = Style.div`
-    margin-top: 20px;
-`

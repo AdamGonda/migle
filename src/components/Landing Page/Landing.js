@@ -1,6 +1,5 @@
 import React from 'react'
-import Style from 'styled-components'
-import Background from './assets/confetti.png'
+import {Wrapper} from './styles/Landing'
 import Hero from './Hero'
 import CTA from './CTA'
 import Scroll from './Scroll'
@@ -15,6 +14,7 @@ const Landing = ({ signIn, signUp }) => {
   const LOGIN = 'LOGIN'
   const SIGN_UP = 'SIGN_UP'
   const LANDING = 'LANDING'
+  const AuthPanelTitles = {login: 'Login', signUp: 'Sign up!'}
 
   const switchViewTo = name => () => {
     switch (name) {
@@ -50,7 +50,7 @@ const Landing = ({ signIn, signUp }) => {
 
       {showLoginPanel && !showSignUpPanel ? (
         <AuthPanel
-          title={'Longin'}
+          title={AuthPanelTitles.login}
           inputItems={[
             {
               type: 'text',
@@ -70,7 +70,7 @@ const Landing = ({ signIn, signUp }) => {
 
       {showSignUpPanel && !showLoginPanel ? (
         <AuthPanel
-        title={'Sign up!'}
+        title={AuthPanelTitles.signUp}
         inputItems={[
           {
             type: 'text',
@@ -116,17 +116,3 @@ export default connect(
   mapDStatetoProps,
   mapDispatchtoProps
 )(Landing)
-
-const Wrapper = Style.section`
-  height: 100%;    
-  width: 100%;  
-  display: grid;
-  grid-template-rows: repead(10, 1fr);
-  justify-content: center;
-
-  background-color: #0094FF;
-  height: 100vh;
-  background-image: url(${Background});
-  background-size: cover;
-  justify-items: center;
-`

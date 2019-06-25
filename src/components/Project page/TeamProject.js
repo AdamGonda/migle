@@ -1,5 +1,5 @@
 import React from 'react'
-import Style from 'styled-components'
+import { Wrapper } from './styles/TeamProject'
 import { connect } from 'react-redux'
 import Module from '../Module/Module'
 import OutliedStarIcon from './assets/outlined star icon.svg'
@@ -86,6 +86,4 @@ export default connect(
   null
 )(TeamProject)
 
-const Wrapper = Style.div`
-  padding: 15px 60px;
-`
+

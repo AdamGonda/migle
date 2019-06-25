@@ -21,19 +21,20 @@ export default ({ description }) => {
 }
 
 const Wrapper = Style.div`
-    width: 370px;
     font-size: 15px;
     font-weight: 500;
-    word-wrap: break-word
-    
     display: flex;
     align-items: center;
+    
   
     
     span {
         font-size: 22px;
-        
         margin-top: -10px;
         display: inline-block;  
+    }
+
+    p {
+      margin: 0px;
     }
 `

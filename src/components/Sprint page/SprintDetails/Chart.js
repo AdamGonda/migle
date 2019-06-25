@@ -1,6 +1,6 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
-import Style from 'styled-components'
+import { Wrapper } from './styles/Chart'
 
 export default ({ ideal, remaining }) => {
 	const data = {
@@ -77,8 +77,4 @@ export default ({ ideal, remaining }) => {
 	)
 }
 
-const Wrapper = Style.div`
-    padding: 28px 20px;
-    background-color: white;
-    border-radius: 0px 0px 25px 25px;
-`
+

@@ -48,7 +48,7 @@ export const Bottom = Style.div`
 `
 
 export const StoryDescription = Style.textarea`
-  width: 497px;
+  //width: 497px;
   grid-column: 2;
   height: 55px;
   align-self: start;
@@ -60,6 +60,7 @@ export const StoryDescription = Style.textarea`
 
 export const SprintTitleInput = Style.input`
   grid-column: 2;
+  justify-self: center;
   height: 37px;
   width: 497px;
   align-self: start;
