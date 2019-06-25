@@ -8,7 +8,7 @@ export const Wrapper = Style.section`
   grid-template-rows: repead(10, 1fr);
   justify-content: center;
 
-  background-color: #0094FF;
+  background-color: var(--nav-bar-color);
   height: 100vh;
   background-image: url(${Background});
   background-size: cover;

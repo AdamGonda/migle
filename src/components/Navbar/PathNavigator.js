@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import Style from 'styled-components'
+import { Wrapper } from './styles/PathNavigator'
 import HomeIcon from './assets/home icon.svg'
 import { navigateTo, NAVBAR } from '../../redux/actions/locations'
 
@@ -49,33 +49,3 @@ export default withRouter(
     { navigateTo }
   )(PathNavigator)
 )
-
-const Wrapper = Style.div`
-  display: flex;
-  align-items: center;
-  margin-right: -100px;
-
-  img {
-    width: 44px;
-    border-radius: 30px;
-    margin-right: 10px;
-  }
-
-  div, span {
-    font-size: 18px;
-    font-weight: 400;
-    margin: 0px 6px;
-    color: white;
-    text-decoration: none;
-
-  }
-
-  div:hover, img:hover {
-    cursor: pointer;
-  }
-
-  span {
-    font-size: 25px;
-    margin-top: -6px;
-  }
-`

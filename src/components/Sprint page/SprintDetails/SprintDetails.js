@@ -1,9 +1,9 @@
 import React from 'react'
-import Style from 'styled-components'
 import Bubble from './Bubble'
 import CompletedIcon from './assets/completed icon.svg'
 import Week from './Week'
 import Chart from './Chart'
+import { Header, Body } from './styles/SprintDetails'
 
 export default () => {
   const dummyDays = [
@@ -36,13 +36,3 @@ export default () => {
     </div>
   )
 }
-
-const Header = Style.div`
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 20px;
-`
-
-const Body = Style.div`
-    margin-top: 20px;
-`

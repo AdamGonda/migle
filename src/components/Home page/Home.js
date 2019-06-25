@@ -4,7 +4,7 @@ import {
   createPersonalProject,
   createTeamProject
 } from '../../redux/actions/project'
-import Style from 'styled-components'
+import { Wrapper } from './styles/Home'
 import Module from '../Module/Module'
 import OutliedStarIcon from './assets/outlined star icon.svg'
 import Item from '../Module/Item'
@@ -101,7 +101,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Home)
-
-const Wrapper = Style.div`
-  padding: 15px 60px;
-`

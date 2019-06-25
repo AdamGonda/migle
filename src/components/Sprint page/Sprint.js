@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Style from 'styled-components'
+import { Wrapper, Left, Right } from './styles/Sprint'
 import Story from './Story/Story'
 import SprintDetails from './SprintDetails/SprintDetails'
 import { firestoreConnect } from 'react-redux-firebase'
@@ -49,20 +49,4 @@ export default compose(
   ])
 )(Sprint)
 
-const Wrapper = Style.div`
-  display: flex;
-  padding: 15px 10px;
-  color: #2D4D60;
-`
 
-const Left = Style.div`
-  display: flex;
-  flex-direction: column;
-  width: 60%;
-  padding: 0px 15px;
-`
-
-const Right = Style.div`
-  width: 40%;
-  padding: 10px 15px;
-`

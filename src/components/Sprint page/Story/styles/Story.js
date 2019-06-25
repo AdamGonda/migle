@@ -5,7 +5,7 @@ export const Wrapper = Style.div`
     grid-template-columns: 50px fit-content(800px) repeat(2, 1fr);
     column-gap: 40px;
     align-items: center; 
-    background-color: #DFE1E6;
+    background-color: var(--box-color);
     height: 76px;
     border-radius: 25px;
     margin: 9.7px 0px;
@@ -18,7 +18,7 @@ export const PickUpStory = Style.div`
     align-content: center;
     width: 49px;
     height: 49px;
-    border: 1.5px solid #2D4D60;
+    border: 1.5px solid var(--dark-text-color);
     border-radius: 30px;
 
     img {
