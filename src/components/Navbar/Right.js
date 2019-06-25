@@ -10,7 +10,7 @@ export default () => {
       {/* <MessageBtn alt="message" src={messageBtn} />
       <TeamBtn alt="team" src={teamBtn} />
       <MainBtn alt="main" src={mainBtn} /> */}
-      <p onClick={() => console.log('log out')} style={{fontSize: 18}} >Log out</p>
+      <p onClick={() => console.log('logout')} style={{fontSize: 18}} >logout</p>
     </Wrapper>
   )
 }
