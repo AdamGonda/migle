@@ -29,7 +29,7 @@ margin: 0;
 `
 
 export const Description = Style.div`
-
+  min-width: 282px;
 `
 
 export const BusinessValue = Style.div`
