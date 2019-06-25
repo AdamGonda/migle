@@ -21,13 +21,28 @@ export const signUp = newUser => (
     .auth()
     .createUserWithEmailAndPassword(newUser.email, newUser.password)
     .then(resp => {
-      return fireSore
-        .collection('users')
-        .doc(resp.user.uid)
-        .set({
-          firstName: newUser.firstName,
-          lastName: newUser.lastName
-        })
+      fireSore
+      .collection('users')
+      .doc(resp.user.uid)
+      .set({
+        firstName: newUser.firstName,
+        lastName: newUser.lastName
+      })
+
+      fireSore
+      .collection('memberships')
+      .add({
+        owner: resp.user.uid,
+        name: `${newUser.firstName} ${newUser.lastName}'s memberships`,
+        memberships: []
+      })
+
+      fireSore
+          .collection('starredSprints')
+          .add({
+            owner: resp.user.uid,
+            sprints: []
+          })
     })
     .then(() => dispatch({ type: AUTH_SUCCESS }))
     .catch(err => dispatch({ type: AUTH_ERROR, payload: err }))
