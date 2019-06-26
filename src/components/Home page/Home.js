@@ -33,7 +33,7 @@ const Home = ({
           return (
             <Item
               key={item.id + idx}
-              id={item.id}
+              id={item.ogProjectId}
               type={item.type}
               name={item.name}
               navigateTo={item.type} // TODO remove this
