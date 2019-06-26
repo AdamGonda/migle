@@ -1,6 +1,15 @@
 import React from 'react'
-import { Wrapper, Info, Top, Bottom } from './styles/Item'
+import {
+  Wrapper,
+  Info,
+  Top,
+  Bottom,
+  ContextMenuBtn,
+  AddToStarredBtn,
+  RemoveStarredBtn
+} from './styles/Item'
 import FullStarIcon from './assets/full star icon.svg'
+import OutlinedStar from './assets/outlined star icon.svg'
 import BvIcon from './assets/bussines value icon.svg'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -13,11 +22,12 @@ const Item = ({
   navigateTo,
   businessValue,
   showStar,
-  animationDelay
+  animationDelay,
+  starAction
 }) => {
   return (
     <Wrapper animationDelay={animationDelay}>
-      <span>...</span>
+      <ContextMenuBtn>...</ContextMenuBtn>
       <NavLink
         style={{ textDecoration: 'none' }}
         to={`${type}/${id}`}
@@ -38,7 +48,15 @@ const Item = ({
           )}
         </Info>
 
-        {showStar && <img alt="Star" src={FullStarIcon} />}
+        {showStar && showStar ? (
+          <RemoveStarredBtn>
+            <img onClick={starAction} alt="Star" src={FullStarIcon} />
+          </RemoveStarredBtn>
+        ) : (
+          <AddToStarredBtn>
+            <img onClick={starAction} alt="Star" src={OutlinedStar} />
+          </AddToStarredBtn>
+        )}
       </Bottom>
     </Wrapper>
   )

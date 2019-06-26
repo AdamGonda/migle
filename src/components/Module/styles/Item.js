@@ -30,10 +30,6 @@ export const Wrapper = Style.div`
 
   :hover {
     span {
-      font-size: 20px;
-      float: right;
-      margin-top: -22px;
-      margint-left: 40px;
       visibility: visible;
       display: inline;
     }
@@ -88,5 +84,27 @@ export const Bottom = Style.div`
     float: right;
     grid-column: -1;
     margin-bottom: 2px;
+  }
+`
+
+export const ContextMenuBtn = Style.span`
+  font-size: 20px;
+  float: right;
+  margin-top: -22px;
+  margint-left: 40px;
+`
+export const AddToStarredBtn = Style.span`
+  width: 12px;
+  grid-column: -1;
+  margin-bottom: 2px;
+`
+
+export const RemoveStarredBtn = Style.div`
+  width: 12px;
+  grid-column: -1;
+  margin-bottom: 2px;
+
+  :hover{
+    cursor:pointer;
   }
 `
