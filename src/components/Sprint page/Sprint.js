@@ -6,34 +6,40 @@ import SprintDetails from './SprintDetails/SprintDetails'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 
-const Sprint = ({ stories }) => {
+const Sprint = ({ stories, sprint }) => {
   return (
     <Wrapper>
       <Left>
-        {stories && stories.map(story => {  
-          return (
-            <Story
-              key={story.id}
-              //id={story.id}
-              //dependencies={story.dependencies}
-              description={story.description}
-              estimation={story.estimation}
-              responsible={story.responsible}
-              status={story.status}
-              businessValue={story.businessValue}
-            />
-          )
-        })}
+        {stories &&
+          stories.map(story => {
+            return (
+              <Story
+                key={story.id}
+                description={story.description}
+                estimation={story.estimation}
+                responsible={story.responsible}
+                status={story.status}
+                businessValue={story.businessValue}
+              />
+            )
+          })}
       </Left>
       <Right>
-        <SprintDetails />
+        <SprintDetails sprint={sprint} />
       </Right>
     </Wrapper>
   )
 }
 
-const mapStateToProps = (state) => {
-  return {stories: state.fireStore.ordered.stories}
+const mapStateToProps = (state, ownState) => {
+  return {
+    sprint:
+      state.fireStore.ordered.sprints &&
+      state.fireStore.ordered.sprints.find(
+        x => x.id == ownState.match.params.id
+      ),
+    stories: state.fireStore.ordered.stories
+  }
 }
 
 export default compose(
@@ -48,5 +54,3 @@ export default compose(
     }
   ])
 )(Sprint)
-
-

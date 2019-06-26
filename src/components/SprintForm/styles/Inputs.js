@@ -58,17 +58,6 @@ export const StoryDescription = Style.textarea`
   font-size: 15px;
 `
 
-export const SprintTitleInput = Style.input`
-  grid-column: 2;
-  justify-self: center;
-  height: 37px;
-  width: 497px;
-  align-self: start;
-  font-size: 15px;
-  padding: 0px 15px;
-  border: none;
-`
-
 export const BusinessValue = Style.div`
   display: flex;
   align-items: center;

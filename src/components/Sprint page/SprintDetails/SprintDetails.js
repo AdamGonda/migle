@@ -5,7 +5,7 @@ import Week from './Week'
 import Chart from './Chart'
 import { Header, Body } from './styles/SprintDetails'
 
-export default () => {
+export default ({sprint}) => {
   const dummyDays = [
     { name: 'Monday', ideal: 50.8, remaining: 60.8 },
     { name: 'Tuesday', ideal: 40, remaining: 45 },
@@ -24,7 +24,7 @@ export default () => {
               style={{ width: '1.3vw', margin: '0px 3.5px -1px -6px' }}
             />
           }
-          number={'9/12'}
+          number={`${sprint.totalNumberOfTasks - sprint.tasksLeft}/${sprint.totalNumberOfTasks}`}
         />
         <Bubble title={'Ideal'} number={'58'} />
         <Bubble title={'Estimation'} number={'60.8'} />

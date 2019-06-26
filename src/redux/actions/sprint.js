@@ -10,6 +10,7 @@ export const createSprint = sprint => {
         owner: sprint.owner,
         tasksLeft: sprint.stories.length,
         totalNumberOfTasks: sprint.stories.length,
+        lengthInWeeks: sprint.sprintLength,
         type: 'sprint'
       })
       .then(resp => {

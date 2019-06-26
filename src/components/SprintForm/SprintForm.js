@@ -1,7 +1,7 @@
 import React from 'react'
 import { createSprint } from '../../redux/actions/sprint'
 import { connect } from 'react-redux'
-import Forms from './Forms'
+import Inputs from './Inputs'
 import Stories from './Stories'
 
 const SprintForm = ({ match, createSprint, closeModal }) => {
@@ -11,11 +11,12 @@ const SprintForm = ({ match, createSprint, closeModal }) => {
   )
   const formsParams = {
     formsTitle: formState.isStoriesForm ? 'Add story' : 'Create sprint',
-    createSprint: createSprint(
-      match.params.id,
-      formState.sprintTitle,
-      formState.stories
-    ),
+    createSprint: createSprint({
+      owner: match.params.id,
+      name: formState.sprintTitle,
+      stories: formState.stories,
+      sprintLength: formState.sprintLength
+    }),
     closeModal,
     formState,
     formStateDispatch
@@ -23,7 +24,7 @@ const SprintForm = ({ match, createSprint, closeModal }) => {
 
   return (
     <>
-      <Forms {...formsParams} />
+      <Inputs {...formsParams} />
       <Stories
         stories={formState.stories}
         isStoriesForm={formState.isStoriesForm}
@@ -34,8 +35,8 @@ const SprintForm = ({ match, createSprint, closeModal }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createSprint: (owner, name, stories) => () =>
-      dispatch(createSprint({ owner, name, stories }))
+    createSprint: sprint => () =>
+      dispatch(createSprint(sprint))
   }
 }
 
@@ -51,13 +52,15 @@ export const TOGGLE_STORIES_FORM = 'TOGGLE_STORIES_FORM'
 export const SET_SPRINT_TITLE = 'SET_SPRINT_TITLE'
 export const SET_STORY_DESCRIPTION = 'SET_STORY_DESCRIPTION'
 export const SET_BUSINESS_VALUE = 'SET_BUSINESS_VALUE'
+export const SET_SPRINT_LENGTH = 'SET_SPRINT_LENGTH'
 
 const initialState = {
   stories: [],
   isStoriesForm: false,
   sprintTitle: '',
   storyDescription: '',
-  businessValue: 100
+  businessValue: 100,
+  sprintLength: 1
 }
 
 const storiesReducer = (state, action) => {
@@ -97,11 +100,17 @@ const storiesReducer = (state, action) => {
         businessValue: action.payload
       }
     case SET_SPRINT_TITLE:
-      console.log(action.payload)
       return {
         ...state,
         sprintTitle: action.payload
       }
+    case SET_SPRINT_LENGTH:
+      console.log(action.payload);
+      
+        return {
+          ...state,
+          sprintLength: action.payload
+        }
     default:
       throw new Error('[IVALID ACTION]')
   }

@@ -1,18 +1,19 @@
 import React from 'react'
 import ButtonsPanel from './ButtonsPanel'
 import BusinessValueIcon from './assets/businessValue.svg'
+import SprintTitleAndLengthInput from './SprintTitleAndLengthInput'
 import {
   Wrapper,
   Top,
   Bottom,
   StoryDescription,
-  SprintTitleInput,
   BusinessValue
-} from './styles/SprintForm'
+} from './styles/Inputs'
 import {
   SET_STORY_DESCRIPTION,
   SET_BUSINESS_VALUE,
-  SET_SPRINT_TITLE
+  SET_SPRINT_TITLE,
+  SET_SPRINT_LENGTH
 } from './SprintForm'
 
 export default ({
@@ -51,12 +52,18 @@ export default ({
             }
           />
         ) : (
-          <SprintTitleInput
+          <SprintTitleAndLengthInput
             placeholder="Title..."
             value={formState.sprintTitle}
-            onChange={e =>
+            onTitleChange={e =>
               formStateDispatch({
                 type: SET_SPRINT_TITLE,
+                payload: e.target.value
+              })
+            }
+            onSprintLengthChange={e =>
+              formStateDispatch({
+                type: SET_SPRINT_LENGTH,
                 payload: e.target.value
               })
             }
