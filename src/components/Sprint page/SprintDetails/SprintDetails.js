@@ -3,7 +3,7 @@ import Bubble from './Bubble'
 import CompletedIcon from './assets/completed icon.svg'
 import Week from './Week'
 import Chart from './Chart'
-import { Header, Body } from './styles/SprintDetails'
+import { Wrapper, Header, Body } from './styles/SprintDetails'
 
 export default ({sprint}) => {
   const dummyDays = [
@@ -13,8 +13,15 @@ export default ({sprint}) => {
     { name: 'Thursday', ideal: 10.8, remaining: 2 }
   ]
 
+  const calcStoriesLeft = () => {
+    if(sprint){
+      return `${sprint.totalNumberOfTasks - sprint.tasksLeft}/${sprint.totalNumberOfTasks}`
+    }
+    return `-/-`
+  }
+
   return (
-    <div>
+    <Wrapper>
       <Header>
         <Bubble
           title={
@@ -24,7 +31,7 @@ export default ({sprint}) => {
               style={{ width: '1.3vw', margin: '0px 3.5px -1px -6px' }}
             />
           }
-          number={`${sprint.totalNumberOfTasks - sprint.tasksLeft}/${sprint.totalNumberOfTasks}`}
+          number={calcStoriesLeft()}
         />
         <Bubble title={'Ideal'} number={'58'} />
         <Bubble title={'Estimation'} number={'60.8'} />
@@ -33,6 +40,6 @@ export default ({sprint}) => {
         <Week days={dummyDays} />
         <Chart ideal={[60, 50, 40, 0]} remaining={[55, 45, 35, 0]} />
       </Body>
-    </div>
+    </Wrapper>
   )
 }

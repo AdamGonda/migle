@@ -87,12 +87,6 @@ export const Bottom = Style.div`
   }
 `
 
-export const ContextMenuBtn = Style.span`
-  font-size: 20px;
-  float: right;
-  margin-top: -22px;
-  margint-left: 40px;
-`
 export const AddToStarredBtn = Style.span`
   width: 12px;
   grid-column: -1;

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Wrapper, Left, Right } from './styles/Sprint'
+import { Wrapper, Stories } from './styles/Sprint'
 import Story from './Story/Story'
 import SprintDetails from './SprintDetails/SprintDetails'
 import { firestoreConnect } from 'react-redux-firebase'
@@ -9,7 +9,7 @@ import { compose } from 'redux'
 const Sprint = ({ stories, sprint }) => {
   return (
     <Wrapper>
-      <Left>
+      <Stories>
         {stories &&
           stories.map(story => {
             return (
@@ -23,10 +23,8 @@ const Sprint = ({ stories, sprint }) => {
               />
             )
           })}
-      </Left>
-      <Right>
-        <SprintDetails sprint={sprint} />
-      </Right>
+      </Stories>
+      <SprintDetails sprint={sprint} />
     </Wrapper>
   )
 }

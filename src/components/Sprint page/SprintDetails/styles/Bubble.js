@@ -6,6 +6,10 @@ export const Wrapper = Style.div`
     padding: 10px 25px;
     display: inline-block;
     text-align: center;
+
+    @media screen and (min-width: 1714px) {
+        font-size: 1.6vw;
+      }
 `
 
 export const Title = Style.span`
@@ -14,6 +18,8 @@ export const Title = Style.span`
 `
 
 export const Number = Style.span`
-    font-size: 1.6vw;
+    font-size: 1vw;
     font-weight: 500;
 `
+
+//1714

@@ -2,14 +2,26 @@ import Style from 'styled-components'
 
 export const Wrapper = Style.div`
     display: grid;
-    grid-template-columns: 50px fit-content(800px) repeat(2, 1fr);
-    column-gap: 40px;
+    grid-template-columns: 50px 1fr 1fr 1fr 1fr;
+    column-gap: 20px;
     align-items: center; 
     background-color: var(--box-color);
     height: 76px;
     border-radius: 25px;
     margin: 9.7px 0px;
     padding: 5px 30px;
+`
+
+export const Description = Style.div`
+    font-size: 15px;
+    font-weight: 500;
+    word-wrap: break-word;
+    width: 250px;
+    margin-left: 20px;
+
+    p {
+        margin: 0px;
+    }
 `
 
 export const PickUpStory = Style.div`
@@ -27,9 +39,28 @@ export const PickUpStory = Style.div`
     }
 `
 
-export const Estimation = Style.div`
-   font-size: 23px;
-   font-weight: 500;
+export const Bubble = Style.div`
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid #2D4D60;
+    border-radius: 25px;
+    padding: 10px 10px;
+    font-size: 24px;
+
+    img {
+    width: 20px;
+    margin-right: 10px;
+    }
+`
+
+export const BusinessValue = Style(Bubble)`
+    width: 110px;
+`
+
+export const Estimation = Style(Bubble)`
+    width: 70px;
 `
 
 export const Responsible = Style.div`
@@ -51,6 +82,7 @@ export const Responsible = Style.div`
 
 export const Status = Style.div`
     text-align: center;
+    justify-self: end;
 
     p {
         font-size: 22px;
