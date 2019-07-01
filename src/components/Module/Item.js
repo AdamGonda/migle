@@ -4,7 +4,6 @@ import {
   Info,
   Top,
   Bottom,
-  ContextMenuBtn,
   AddToStarredBtn,
   RemoveStarredBtn
 } from './styles/Item'
@@ -27,7 +26,6 @@ const Item = ({
 }) => {
   return (
     <Wrapper animationDelay={animationDelay}>
-      <ContextMenuBtn>...</ContextMenuBtn>
       <NavLink
         style={{ textDecoration: 'none' }}
         to={`${type}/${id}`}

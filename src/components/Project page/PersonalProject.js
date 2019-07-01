@@ -13,30 +13,6 @@ const PersonalProject = ({ uid, match }) => {
     <Wrapper>
       <Sprints>
         <Module
-          icon={<img alt="star" src={OutliedStarIcon} style={{width: 23}}/>}
-          name={'Starred sprints'}
-          fetchFrom={'starredSprints'}
-          ownerIdForFetch={uid}
-          showItem={(item, idx) => {
-            return item.sprints
-              .filter(item => item.parentProjectId == match.params.id)
-              .map(item => {
-                return (
-                  <Item
-                    key={item.id + idx}
-                    id={item.id}
-                    type={item.type}
-                    name={item.name}
-                    navigateTo={item.type}
-                    animationDelay={idx}
-                    showStar={true}
-                  />
-                )
-              })
-          }}
-        />
-
-        <Module
           icon={<img alt="star" src={OngoingIcon} style={{width: 25, marginBottom: -2}}/>}
           name={'Ongoin sprints'}
           fetchFrom={'sprints'}
@@ -50,7 +26,6 @@ const PersonalProject = ({ uid, match }) => {
               name={item.name}
               navigateTo={item.type}
               animationDelay={idx}
-              showStar={false}
             />
           )}
         />

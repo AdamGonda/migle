@@ -6,7 +6,6 @@ export default () => {
   return (
     <Wrapper>
       <a href="/">migle</a>
-      <Search />
     </Wrapper>
   )
 }
