@@ -1,6 +1,6 @@
-# Migle
+# Migle | collaborative agile project planner
 
-It is a collaborative agile project planner.
+![](https://github.com/AdamGonda/migle/blob/master/screenshots/Screenshot%202020-08-10%20at%208.27.59.png)
 
 I liked to learn React, Redux, Firebase and a lot's of other stuff on a bigger project so I thought I will create a Trello copy because that way I wouldn't have to bother to try to come up with the product idea, just with an implementation. But I decided to create something else because I found a use case for it, a real-life problem.
 
@@ -15,10 +15,3 @@ Stuff like that, so I thought it is fairly well defined so I can make an app tha
 - Real-time messaging.
 - Ease of use.
 - Nice UX/UI.
-
-### Disclaimer: 
-You can find the API key to the database in the repo, it is, of course, not acceptable for a real-world project and probably I will change it later :D
-
-### Here is a UI concept to get an idea of how I imagine the stuff so far:
-![](https://github.com/AdamGonda/migle-front/blob/master/sprint%20view%20concept.png)
-
