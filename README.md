@@ -15,3 +15,7 @@ Stuff like that, so I thought it is fairly well defined so I can make an app tha
 - Real-time messaging.
 - Ease of use.
 - Nice UX/UI.
+
+
+### Sprint view
+![](https://github.com/AdamGonda/migle/blob/master/screenshots/sprint%20view%20concept.png)
