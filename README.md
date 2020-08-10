@@ -16,16 +16,34 @@ Stuff like that, so I thought it is fairly well defined so I can make an app tha
 - Ease of use.
 - Nice UX/UI.
 
+## Dashboard view
+![](https://github.com/AdamGonda/migle/blob/master/screenshots/dashboard.png)
 
-### Sprint view
-![](https://github.com/AdamGonda/migle/blob/master/screenshots/sprint%20view.png)
+---
 
+#### Breadcrumb navigation
+So the user is able to navigate around and also have a reference point when she works with a more complex project.
+
+![](https://github.com/AdamGonda/migle/blob/master/screenshots/breadcrumb%20nav.gif)
+
+---
+
+#### Create project
+
+![](https://github.com/AdamGonda/migle/blob/master/screenshots/create%20project.gif)
+
+---
+
+#### Like a project
+
+![](https://github.com/AdamGonda/migle/blob/master/screenshots/like%20project.gif)
+
+<br>
+<br>
+
+## Sprint view
 ![](https://github.com/AdamGonda/migle/blob/master/screenshots/sprint%20modal.png)
-
-![](https://github.com/AdamGonda/migle/blob/master/screenshots/sprint%20modal%20with%20tasks.png)
-
 
 ![](https://github.com/AdamGonda/migle/blob/master/screenshots/task%20modal.png)
 
-
-![](https://github.com/AdamGonda/migle/blob/master/screenshots/dashboard.png)
+![](https://github.com/AdamGonda/migle/blob/master/screenshots/sprint%20view.png)
