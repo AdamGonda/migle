@@ -29,3 +29,9 @@ Stuff like that, so I thought it is fairly well defined so I can make an app tha
 
 
 ![](https://github.com/AdamGonda/migle/blob/master/screenshots/dashboard.png)
+
+![](https://github.com/AdamGonda/migle/blob/master/screenshots/breadcrumb%20nav.gif)
+
+![](https://github.com/AdamGonda/migle/blob/master/screenshots/create%20project.gif)
+
+![](https://github.com/AdamGonda/migle/blob/master/screenshots/like%20project.gif)
