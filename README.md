@@ -18,16 +18,23 @@ Stuff like that, so I thought it is fairly well defined so I can make an app tha
 
 ### Dashboard
 ![](https://github.com/AdamGonda/migle/blob/master/screenshots/dashboard.png)
-Sorry, the gifs are a bit pale.
 
-Breadcrumb navigation, so the user is able to navigate around and also have a reference point when she works with a more complex project.
+---
+
+#### Breadcrumb navigation
+So the user is able to navigate around and also have a reference point when she works with a more complex project.
+
 ![](https://github.com/AdamGonda/migle/blob/master/screenshots/breadcrumb%20nav.gif)
 
-Create project
+---
+
+#### Create project
 
 ![](https://github.com/AdamGonda/migle/blob/master/screenshots/create%20project.gif)
 
-Like a project
+---
+
+#### Like a project
 
 ![](https://github.com/AdamGonda/migle/blob/master/screenshots/like%20project.gif)
 
