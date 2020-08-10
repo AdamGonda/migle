@@ -24,9 +24,11 @@ Breadcrumb navigation, so the user is able to navigate around and also have a re
 ![](https://github.com/AdamGonda/migle/blob/master/screenshots/breadcrumb%20nav.gif)
 
 Create project
+
 ![](https://github.com/AdamGonda/migle/blob/master/screenshots/create%20project.gif)
 
 Like a project
+
 ![](https://github.com/AdamGonda/migle/blob/master/screenshots/like%20project.gif)
 
 
