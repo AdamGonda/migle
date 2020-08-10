@@ -22,7 +22,6 @@ Stuff like that, so I thought it is fairly well defined so I can make an app tha
 ---
 
 #### Breadcrumb navigation
-So the user is able to navigate around and also have a reference point when she works with a more complex project.
 
 ![](https://github.com/AdamGonda/migle/blob/master/screenshots/breadcrumb%20nav.gif)
 
