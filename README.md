@@ -1,6 +1,6 @@
 # Migle | collaborative agile project planner
 
-![](https://github.com/AdamGonda/migle/blob/master/screenshots/Screenshot%202020-08-10%20at%208.27.59.png)
+![](https://github.com/AdamGonda/migle/blob/master/screenshots/landing.png)
 
 I liked to learn React, Redux, Firebase and a lot's of other stuff on a bigger project so I thought I will create a Trello copy because that way I wouldn't have to bother to try to come up with the product idea, just with an implementation. But I decided to create something else because I found a use case for it, a real-life problem.
 
@@ -18,4 +18,14 @@ Stuff like that, so I thought it is fairly well defined so I can make an app tha
 
 
 ### Sprint view
-![](https://github.com/AdamGonda/migle/blob/master/screenshots/sprint%20view%20concept.png)
+![](https://github.com/AdamGonda/migle/blob/master/screenshots/sprint%20view.png)
+
+![](https://github.com/AdamGonda/migle/blob/master/screenshots/sprint%20modal.png)
+
+![](https://github.com/AdamGonda/migle/blob/master/screenshots/sprint%20modal%20with%20tasks.png)
+
+
+![](https://github.com/AdamGonda/migle/blob/master/screenshots/task%20modal.png)
+
+
+![](https://github.com/AdamGonda/migle/blob/master/screenshots/dashboard.png)
