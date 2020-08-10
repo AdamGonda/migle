@@ -42,7 +42,7 @@ So the user is able to navigate around and also have a reference point when she 
 <br>
 
 ## Sprint view
-![](https://github.com/AdamGonda/migle/blob/master/screenshots/sprint%20modal%20with%20tasks.png)
+![](https://github.com/AdamGonda/migle/blob/master/screenshots/sprint%20modal.png)
 
 ![](https://github.com/AdamGonda/migle/blob/master/screenshots/task%20modal.png)
 
